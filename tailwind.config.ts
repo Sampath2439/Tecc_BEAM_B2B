@@ -22,6 +22,16 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          50: "hsl(var(--primary-50))",
+          100: "hsl(var(--primary-100))",
+          200: "hsl(var(--primary-200))",
+          300: "hsl(var(--primary-300))",
+          400: "hsl(var(--primary-400))",
+          500: "hsl(var(--primary-500))",
+          600: "hsl(var(--primary-600))",
+          700: "hsl(var(--primary-700))",
+          800: "hsl(var(--primary-800))",
+          900: "hsl(var(--primary-900))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -56,6 +66,34 @@ export default {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
+        },
+        // Material Design 3 Tech BEAM colors
+        'tech-beam': {
+          50: "hsl(var(--tech-beam-50))",
+          100: "hsl(var(--tech-beam-100))",
+          200: "hsl(var(--tech-beam-200))",
+          300: "hsl(var(--tech-beam-300))",
+          400: "hsl(var(--tech-beam-400))",
+          500: "hsl(var(--tech-beam-500))",
+          600: "hsl(var(--tech-beam-600))",
+          700: "hsl(var(--tech-beam-700))",
+          800: "hsl(var(--tech-beam-800))",
+          900: "hsl(var(--tech-beam-900))",
+        },
+        surface: {
+          DEFAULT: "hsl(var(--surface))",
+          variant: "hsl(var(--surface-variant))",
+          container: {
+            DEFAULT: "hsl(var(--surface-container))",
+            high: "hsl(var(--surface-container-high))",
+            highest: "hsl(var(--surface-container-highest))",
+            low: "hsl(var(--surface-container-low))",
+            lowest: "hsl(var(--surface-container-lowest))",
+          },
+        },
+        outline: {
+          DEFAULT: "hsl(var(--outline))",
+          variant: "hsl(var(--outline-variant))",
         },
       },
       borderRadius: {
