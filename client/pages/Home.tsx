@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useApp } from "@/contexts/AppContext";
+import { DemoActions } from "@/components/DemoActions";
 import { 
   Search, 
   ArrowRight, 
@@ -393,6 +394,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <DemoActions />
     </Layout>
   );
 }
