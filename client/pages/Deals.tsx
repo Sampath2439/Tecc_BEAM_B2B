@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { useApp } from "@/contexts/AppContext";
 import { 
   Timer, 
   TrendingUp, 
@@ -53,6 +54,7 @@ interface Deal {
 export default function Deals() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [dealType, setDealType] = useState("all");
+  const { addToCart, isInCart } = useApp();
 
   const deals: Deal[] = [
     {
@@ -448,9 +450,25 @@ export default function Deals() {
                         View Details
                       </Button>
                     </Link>
-                    <Button className="flex-1 bg-tech-beam-600 hover:bg-tech-beam-700">
+                    <Button
+                      className="flex-1 bg-tech-beam-600 hover:bg-tech-beam-700"
+                      onClick={() => {
+                        const cartItem = {
+                          id: deal.id,
+                          name: deal.title,
+                          brand: deal.brand,
+                          price: deal.dealPrice,
+                          originalPrice: deal.originalPrice,
+                          image: deal.image,
+                          minOrder: deal.bulkTiers[0]?.label || "1 unit",
+                          category: deal.category,
+                          gstNumber: deal.gstNumber
+                        };
+                        addToCart(cartItem, 1);
+                      }}
+                    >
                       <ShoppingCart className="w-4 h-4 mr-2" />
-                      Add to Cart
+                      {isInCart(deal.id) ? "Added to Cart" : "Add to Cart"}
                     </Button>
                   </div>
 
