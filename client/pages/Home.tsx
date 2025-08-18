@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useApp } from "@/contexts/AppContext";
 import { 
   Search, 
   ArrowRight, 
@@ -20,6 +21,7 @@ import Layout from "@/components/Layout";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
+  const { addToCart, toggleWishlist, isInWishlist } = useApp();
 
   const featuredCategories = [
     {
@@ -320,7 +322,23 @@ export default function Home() {
                       <p className="font-medium text-gray-900">{deal.minQuantity}</p>
                     </div>
 
-                    <Button className="w-full bg-tech-beam-600 hover:bg-tech-beam-700 group-hover:scale-105 transition-transform">
+                    <Button
+                      onClick={() => {
+                        const cartItem = {
+                          id: deal.id,
+                          name: deal.name,
+                          brand: deal.brand,
+                          price: deal.dealPrice,
+                          originalPrice: deal.originalPrice,
+                          image: deal.image,
+                          minOrder: deal.minQuantity,
+                          category: "Deals",
+                          gstNumber: "GST123456789"
+                        };
+                        addToCart(cartItem, 1);
+                      }}
+                      className="w-full bg-tech-beam-600 hover:bg-tech-beam-700 group-hover:scale-105 transition-transform"
+                    >
                       <ShoppingCart className="w-4 h-4 mr-2" />
                       Add to Cart
                     </Button>
