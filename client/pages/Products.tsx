@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Slider } from "@/components/ui/slider";
+import { useApp } from "@/contexts/AppContext";
 import { 
   Search, 
   Filter, 
@@ -58,6 +59,7 @@ export default function Products() {
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [selectedAvailability, setSelectedAvailability] = useState<string[]>([]);
   const [showFilters, setShowFilters] = useState(false);
+  const { addToCart, toggleWishlist, isInWishlist, isInCart } = useApp();
 
   // Mock product data
   const allProducts: Product[] = [
@@ -484,8 +486,28 @@ export default function Products() {
                                 )}
                               </div>
                               <div className="absolute top-2 right-2">
-                                <Button variant="ghost" size="sm" className="p-1 h-8 w-8">
-                                  <Heart className="w-4 h-4" />
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  className="p-1 h-8 w-8"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    const wishlistItem = {
+                                      id: product.id,
+                                      name: product.name,
+                                      brand: product.brand,
+                                      price: product.price,
+                                      originalPrice: product.originalPrice,
+                                      image: product.image,
+                                      category: product.category,
+                                      rating: product.rating,
+                                      reviewCount: product.reviewCount
+                                    };
+                                    toggleWishlist(wishlistItem);
+                                  }}
+                                >
+                                  <Heart className={`w-4 h-4 ${isInWishlist(product.id) ? 'fill-current text-red-500' : ''}`} />
                                 </Button>
                               </div>
                             </div>
@@ -557,12 +579,30 @@ export default function Products() {
                               </div>
 
                               {/* Add to Cart Button */}
-                              <Button 
+                              <Button
                                 className="w-full bg-tech-beam-600 hover:bg-tech-beam-700 text-white"
                                 disabled={!product.inStock}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  if (product.inStock) {
+                                    const cartItem = {
+                                      id: product.id,
+                                      name: product.name,
+                                      brand: product.brand,
+                                      price: product.price,
+                                      originalPrice: product.originalPrice,
+                                      image: product.image,
+                                      minOrder: product.minOrder,
+                                      category: product.category,
+                                      gstNumber: product.gstNumber
+                                    };
+                                    addToCart(cartItem, 1);
+                                  }
+                                }}
                               >
                                 <ShoppingCart className="w-4 h-4 mr-2" />
-                                {product.inStock ? "Add to Cart" : "Out of Stock"}
+                                {product.inStock ? (isInCart(product.id) ? "Added to Cart" : "Add to Cart") : "Out of Stock"}
                               </Button>
                             </div>
                           </div>
@@ -587,8 +627,28 @@ export default function Products() {
                                     {product.name}
                                   </h3>
                                 </div>
-                                <Button variant="ghost" size="sm" className="p-1 h-8 w-8">
-                                  <Heart className="w-4 h-4" />
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  className="p-1 h-8 w-8"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    const wishlistItem = {
+                                      id: product.id,
+                                      name: product.name,
+                                      brand: product.brand,
+                                      price: product.price,
+                                      originalPrice: product.originalPrice,
+                                      image: product.image,
+                                      category: product.category,
+                                      rating: product.rating,
+                                      reviewCount: product.reviewCount
+                                    };
+                                    toggleWishlist(wishlistItem);
+                                  }}
+                                >
+                                  <Heart className={`w-4 h-4 ${isInWishlist(product.id) ? 'fill-current text-red-500' : ''}`} />
                                 </Button>
                               </div>
                               
@@ -645,12 +705,30 @@ export default function Products() {
                                   <p className="text-sm text-gray-500">Min order: {product.minOrder}</p>
                                 </div>
                                 
-                                <Button 
+                                <Button
                                   className="bg-tech-beam-600 hover:bg-tech-beam-700 text-white px-8"
                                   disabled={!product.inStock}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    if (product.inStock) {
+                                      const cartItem = {
+                                        id: product.id,
+                                        name: product.name,
+                                        brand: product.brand,
+                                        price: product.price,
+                                        originalPrice: product.originalPrice,
+                                        image: product.image,
+                                        minOrder: product.minOrder,
+                                        category: product.category,
+                                        gstNumber: product.gstNumber
+                                      };
+                                      addToCart(cartItem, 1);
+                                    }
+                                  }}
                                 >
                                   <ShoppingCart className="w-4 h-4 mr-2" />
-                                  {product.inStock ? "Add to Cart" : "Out of Stock"}
+                                  {product.inStock ? (isInCart(product.id) ? "Added to Cart" : "Add to Cart") : "Out of Stock"}
                                 </Button>
                               </div>
                             </div>
