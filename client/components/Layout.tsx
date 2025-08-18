@@ -60,9 +60,9 @@ export default function Layout({ children, showNavigation = true }: LayoutProps)
       {/* Header */}
       <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
+          <div className="flex h-16 items-center gap-6">
             {/* Logo */}
-            <div className="flex items-center">
+            <div className="flex items-center flex-shrink-0">
               <Link to="/" className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-tech-beam-600 rounded-xl flex items-center justify-center shadow-lg">
                   <Zap className="w-6 h-6 text-white" />
@@ -77,12 +77,12 @@ export default function Layout({ children, showNavigation = true }: LayoutProps)
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-8">
+            <nav className="hidden md:flex space-x-6">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`text-sm font-medium px-3 py-2 rounded-lg transition-colors ${
+                  className={`text-sm font-medium px-3 py-2 rounded-lg transition-colors whitespace-nowrap ${
                     item.current
                       ? "text-tech-beam-600 bg-tech-beam-50"
                       : "text-gray-700 hover:text-tech-beam-600 hover:bg-gray-50"
@@ -94,7 +94,7 @@ export default function Layout({ children, showNavigation = true }: LayoutProps)
             </nav>
 
             {/* Search Bar */}
-            <div className="flex-1 max-w-lg mx-8 hidden lg:block">
+            <div className="flex-1 max-w-lg mx-4 hidden lg:block">
               <form onSubmit={handleSearch}>
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
