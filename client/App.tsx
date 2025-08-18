@@ -8,6 +8,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Categories from "./pages/Categories";
+import Products from "./pages/Products";
+import Deals from "./pages/Deals";
 import PlaceholderPage from "./pages/PlaceholderPage";
 import NotFound from "./pages/NotFound";
 
@@ -24,13 +27,7 @@ const App = () => (
           <Route path="/login" element={<Login />} />
 
           {/* Product & Catalog Routes */}
-          <Route path="/categories" element={
-            <PlaceholderPage
-              title="Product Categories"
-              description="Browse our extensive catalog of wholesale products organized by business categories."
-              suggestionText="This will show the full category listing with filters and product counts."
-            />
-          } />
+          <Route path="/categories" element={<Categories />} />
           <Route path="/category/:id" element={
             <PlaceholderPage
               title="Category Products"
@@ -38,13 +35,7 @@ const App = () => (
               suggestionText="This will show the product catalog page with left sidebar filters."
             />
           } />
-          <Route path="/products" element={
-            <PlaceholderPage
-              title="All Products"
-              description="Browse our complete wholesale product catalog with advanced filtering."
-              suggestionText="This will show the main product catalog with search and filters."
-            />
-          } />
+          <Route path="/products" element={<Products />} />
           <Route path="/product/:id" element={
             <PlaceholderPage
               title="Product Details"
@@ -59,13 +50,7 @@ const App = () => (
               suggestionText="This will show search results with filtering and sorting options."
             />
           } />
-          <Route path="/deals" element={
-            <PlaceholderPage
-              title="B2B Deals & Offers"
-              description="Exclusive wholesale deals and bulk discount offers for business customers."
-              suggestionText="This will show current deals, promotions, and bulk pricing offers."
-            />
-          } />
+          <Route path="/deals" element={<Deals />} />
 
           {/* Cart & Checkout Routes */}
           <Route path="/cart" element={
