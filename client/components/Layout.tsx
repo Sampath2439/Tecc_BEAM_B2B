@@ -1,5 +1,6 @@
 import React, { ReactNode, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useApp } from "@/contexts/AppContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -34,6 +35,11 @@ export default function Layout({ children, showNavigation = true }: LayoutProps)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { state, getCartItemsCount, getUnreadNotificationsCount } = useApp();
+
+  const cartItemsCount = getCartItemsCount();
+  const unreadNotificationsCount = getUnreadNotificationsCount();
+  const wishlistCount = state.wishlist.length;
 
   const navigation = [
     { name: "Home", href: "/", current: location.pathname === "/" },
@@ -111,28 +117,40 @@ export default function Layout({ children, showNavigation = true }: LayoutProps)
             {/* Desktop Actions */}
             <div className="hidden md:flex items-center space-x-3 flex-shrink-0 ml-auto">
               {/* Notifications */}
-              <Button variant="ghost" size="sm" className="relative p-2">
-                <Bell className="w-5 h-5 text-gray-600" />
-                <Badge className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center bg-red-500 text-white text-xs">
-                  3
-                </Badge>
-              </Button>
+              <Link to="/notifications">
+                <Button variant="ghost" size="sm" className="relative p-2">
+                  <Bell className="w-5 h-5 text-gray-600" />
+                  {unreadNotificationsCount > 0 && (
+                    <Badge className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center bg-red-500 text-white text-xs">
+                      {unreadNotificationsCount}
+                    </Badge>
+                  )}
+                </Button>
+              </Link>
 
               {/* Wishlist */}
-              <Button variant="ghost" size="sm" className="relative p-2">
-                <Heart className="w-5 h-5 text-gray-600" />
-                <Badge className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center bg-tech-beam-500 text-white text-xs">
-                  12
-                </Badge>
-              </Button>
+              <Link to="/wishlist">
+                <Button variant="ghost" size="sm" className="relative p-2">
+                  <Heart className="w-5 h-5 text-gray-600" />
+                  {wishlistCount > 0 && (
+                    <Badge className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center bg-tech-beam-500 text-white text-xs">
+                      {wishlistCount}
+                    </Badge>
+                  )}
+                </Button>
+              </Link>
 
               {/* Cart */}
-              <Button variant="ghost" size="sm" className="relative p-2">
-                <ShoppingCart className="w-5 h-5 text-gray-600" />
-                <Badge className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center bg-tech-beam-500 text-white text-xs">
-                  5
-                </Badge>
-              </Button>
+              <Link to="/cart">
+                <Button variant="ghost" size="sm" className="relative p-2">
+                  <ShoppingCart className="w-5 h-5 text-gray-600" />
+                  {cartItemsCount > 0 && (
+                    <Badge className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center bg-tech-beam-500 text-white text-xs">
+                      {cartItemsCount}
+                    </Badge>
+                  )}
+                </Button>
+              </Link>
 
               {/* User Menu */}
               <DropdownMenu>
@@ -142,33 +160,43 @@ export default function Layout({ children, showNavigation = true }: LayoutProps)
                       <User className="w-4 h-4 text-tech-beam-600" />
                     </div>
                     <div className="hidden lg:block text-left">
-                      <p className="text-sm font-medium text-gray-900">TechCorp Ltd.</p>
+                      <p className="text-sm font-medium text-gray-900">{state.user.company}</p>
                       <p className="text-xs text-gray-500">Business Account</p>
                     </div>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-56">
-                  <DropdownMenuItem>
-                    <User className="w-4 h-4 mr-2" />
-                    Profile & Settings
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Package className="w-4 h-4 mr-2" />
-                    Order History
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <FileText className="w-4 h-4 mr-2" />
-                    Invoices
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Settings className="w-4 h-4 mr-2" />
-                    Account Settings
-                  </DropdownMenuItem>
+                  <Link to="/profile">
+                    <DropdownMenuItem>
+                      <User className="w-4 h-4 mr-2" />
+                      Profile & Settings
+                    </DropdownMenuItem>
+                  </Link>
+                  <Link to="/orders">
+                    <DropdownMenuItem>
+                      <Package className="w-4 h-4 mr-2" />
+                      Order History
+                    </DropdownMenuItem>
+                  </Link>
+                  <Link to="/invoices">
+                    <DropdownMenuItem>
+                      <FileText className="w-4 h-4 mr-2" />
+                      Invoices
+                    </DropdownMenuItem>
+                  </Link>
+                  <Link to="/profile">
+                    <DropdownMenuItem>
+                      <Settings className="w-4 h-4 mr-2" />
+                      Account Settings
+                    </DropdownMenuItem>
+                  </Link>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem className="text-red-600">
-                    <LogOut className="w-4 h-4 mr-2" />
-                    Sign out
-                  </DropdownMenuItem>
+                  <Link to="/login">
+                    <DropdownMenuItem className="text-red-600">
+                      <LogOut className="w-4 h-4 mr-2" />
+                      Sign out
+                    </DropdownMenuItem>
+                  </Link>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
@@ -230,14 +258,18 @@ export default function Layout({ children, showNavigation = true }: LayoutProps)
                   <span className="text-sm font-medium text-gray-700">Quick Actions</span>
                 </div>
                 <div className="flex space-x-4">
-                  <Button variant="outline" size="sm" className="flex-1">
-                    <Heart className="w-4 h-4 mr-2" />
-                    Wishlist (12)
-                  </Button>
-                  <Button variant="outline" size="sm" className="flex-1">
-                    <ShoppingCart className="w-4 h-4 mr-2" />
-                    Cart (5)
-                  </Button>
+                  <Link to="/wishlist" className="flex-1">
+                    <Button variant="outline" size="sm" className="w-full">
+                      <Heart className="w-4 h-4 mr-2" />
+                      Wishlist ({wishlistCount})
+                    </Button>
+                  </Link>
+                  <Link to="/cart" className="flex-1">
+                    <Button variant="outline" size="sm" className="w-full">
+                      <ShoppingCart className="w-4 h-4 mr-2" />
+                      Cart ({cartItemsCount})
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
