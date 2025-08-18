@@ -12,8 +12,7 @@ import {
   Info, 
   AlertTriangle,
   ArrowLeft,
-  Trash2,
-  MarkAsRead
+  Trash2
 } from "lucide-react";
 import Layout from "@/components/Layout";
 import { useApp } from "@/contexts/AppContext";
