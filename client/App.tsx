@@ -15,6 +15,7 @@ import Deals from "./pages/Deals";
 import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
 import Notifications from "./pages/Notifications";
+import Checkout from "./pages/Checkout";
 import PlaceholderPage from "./pages/PlaceholderPage";
 import NotFound from "./pages/NotFound";
 
@@ -61,13 +62,7 @@ const App = () => (
           <Route path="/cart" element={<Cart />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/notifications" element={<Notifications />} />
-          <Route path="/checkout" element={
-            <PlaceholderPage
-              title="Checkout"
-              description="Complete your wholesale order with delivery and payment details."
-              suggestionText="This will show the multi-step checkout process (address, payment, confirmation)."
-            />
-          } />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/checkout/success" element={
             <PlaceholderPage
               title="Order Confirmed"
