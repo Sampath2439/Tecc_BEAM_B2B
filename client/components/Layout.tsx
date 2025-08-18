@@ -191,7 +191,7 @@ export default function Layout({ children, showNavigation = true }: LayoutProps)
           </div>
 
           {/* Mobile Search Bar */}
-          <div className="lg:hidden pb-4">
+          <div className="lg:hidden py-4 border-t border-gray-100">
             <form onSubmit={handleSearch}>
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
