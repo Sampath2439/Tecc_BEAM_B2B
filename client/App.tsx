@@ -6,11 +6,15 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AppProvider } from "./contexts/AppContext";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Categories from "./pages/Categories";
 import Products from "./pages/Products";
 import Deals from "./pages/Deals";
+import Cart from "./pages/Cart";
+import Wishlist from "./pages/Wishlist";
+import Notifications from "./pages/Notifications";
 import PlaceholderPage from "./pages/PlaceholderPage";
 import NotFound from "./pages/NotFound";
 
@@ -18,10 +22,11 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
+    <AppProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -53,13 +58,9 @@ const App = () => (
           <Route path="/deals" element={<Deals />} />
 
           {/* Cart & Checkout Routes */}
-          <Route path="/cart" element={
-            <PlaceholderPage
-              title="Shopping Cart"
-              description="Review your selected products and proceed to checkout."
-              suggestionText="This will show the cart page with product list, quantities, and totals."
-            />
-          } />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/notifications" element={<Notifications />} />
           <Route path="/checkout" element={
             <PlaceholderPage
               title="Checkout"
@@ -102,13 +103,6 @@ const App = () => (
               title="Business Profile"
               description="Manage your business account, addresses, and preferences."
               suggestionText="This will show the profile management page with business details and settings."
-            />
-          } />
-          <Route path="/wishlist" element={
-            <PlaceholderPage
-              title="Wishlist"
-              description="Your saved products for future bulk orders."
-              suggestionText="This will show saved products with quick add to cart and bulk actions."
             />
           } />
 
@@ -162,7 +156,8 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-    </TooltipProvider>
+      </TooltipProvider>
+    </AppProvider>
   </QueryClientProvider>
 );
 
