@@ -109,7 +109,7 @@ export default function Layout({ children, showNavigation = true }: LayoutProps)
             </div>
 
             {/* Desktop Actions */}
-            <div className="hidden md:flex items-center space-x-4">
+            <div className="hidden md:flex items-center space-x-3 flex-shrink-0">
               {/* Notifications */}
               <Button variant="ghost" size="sm" className="relative p-2">
                 <Bell className="w-5 h-5 text-gray-600" />
@@ -173,8 +173,8 @@ export default function Layout({ children, showNavigation = true }: LayoutProps)
               </DropdownMenu>
             </div>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden">
+            {/* Mobile menu button - positioned on the right */}
+            <div className="md:hidden flex items-center ml-auto">
               <Button
                 variant="ghost"
                 size="sm"
