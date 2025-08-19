@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Slider } from "@/components/ui/slider";
 import { useApp } from "@/contexts/AppContext";
-import { DemoActions } from "@/components/DemoActions";
 import { 
   Search, 
   Filter, 
@@ -757,7 +756,6 @@ export default function Products() {
           </div>
         </div>
       </div>
-      <DemoActions />
     </Layout>
   );
 }
