@@ -35,13 +35,7 @@ const App = () => (
 
           {/* Product & Catalog Routes */}
           <Route path="/categories" element={<Categories />} />
-          <Route path="/category/:id" element={
-            <PlaceholderPage
-              title="Category Products"
-              description="View all products in this category with easy filtering and search."
-              suggestionText="This will show the product catalog page with left sidebar filters."
-            />
-          } />
+          <Route path="/category/:id" element={<CategoryProducts />} />
           <Route path="/products" element={<Products />} />
           <Route path="/product/:id" element={
             <PlaceholderPage
