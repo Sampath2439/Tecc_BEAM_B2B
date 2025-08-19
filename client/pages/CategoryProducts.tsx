@@ -49,6 +49,7 @@ interface Product {
 const categoryData = {
   1: {
     name: "Groceries & Food",
+    slug: "groceries-food",
     description: "Fresh groceries, packaged foods, and daily essentials",
     image: "🛒",
     color: "bg-green-100 text-green-800",
@@ -56,6 +57,7 @@ const categoryData = {
   },
   2: {
     name: "Personal Care",
+    slug: "personal-care",
     description: "Soaps, shampoos, cosmetics, and hygiene products",
     image: "🧴",
     color: "bg-pink-100 text-pink-800",
@@ -63,6 +65,7 @@ const categoryData = {
   },
   3: {
     name: "Electronics",
+    slug: "electronics",
     description: "Phones, accessories, and electronic gadgets",
     image: "📱",
     color: "bg-blue-100 text-blue-800",
@@ -70,6 +73,7 @@ const categoryData = {
   },
   4: {
     name: "Home & Cleaning",
+    slug: "home-cleaning",
     description: "Detergents, cleaners, and household items",
     image: "🏠",
     color: "bg-purple-100 text-purple-800",
@@ -77,6 +81,7 @@ const categoryData = {
   },
   5: {
     name: "Office Supplies",
+    slug: "office-supplies",
     description: "Stationery, paper, and office equipment",
     image: "📄",
     color: "bg-orange-100 text-orange-800",
@@ -84,6 +89,7 @@ const categoryData = {
   },
   6: {
     name: "Health & Wellness",
+    slug: "health-wellness",
     description: "Supplements, first aid, and health products",
     image: "💊",
     color: "bg-red-100 text-red-800",
