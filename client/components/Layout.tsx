@@ -41,6 +41,10 @@ export default function Layout({ children, showNavigation = true }: LayoutProps)
   const unreadNotificationsCount = getUnreadNotificationsCount();
   const wishlistCount = state.wishlist.length;
 
+  // Hide footer on checkout, cart, and payment related pages
+  const hideFooterPaths = ['/checkout', '/cart'];
+  const shouldHideFooter = hideFooterPaths.some(path => location.pathname.startsWith(path));
+
   const navigation = [
     { name: "Home", href: "/", current: location.pathname === "/" },
     { name: "Categories", href: "/categories", current: location.pathname === "/categories" },
@@ -281,7 +285,8 @@ export default function Layout({ children, showNavigation = true }: LayoutProps)
       <main>{children}</main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white">
+      {!shouldHideFooter && (
+        <footer className="bg-gray-900 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-4">
@@ -336,7 +341,8 @@ export default function Layout({ children, showNavigation = true }: LayoutProps)
             <p>© 2024 Tech BEAM Wholesale Portal. All rights reserved. | Business Solutions</p>
           </div>
         </div>
-      </footer>
+        </footer>
+      )}
     </div>
   );
 }
