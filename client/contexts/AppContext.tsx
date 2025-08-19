@@ -10,9 +10,7 @@ export interface CartItem {
   originalPrice?: number;
   image: string;
   quantity: number;
-  minOrder: string;
   category: string;
-  gstNumber: string;
 }
 
 export interface WishlistItem {
