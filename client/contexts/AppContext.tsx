@@ -98,8 +98,8 @@ const initialState: AppState = {
   ],
   user: {
     name: 'Gnana Sampath',
-    company: 'TechCorp Ltd.',
-    email: 'gnana@techcorp.com',
+    company: 'Gnana Sampath',
+    email: 'gnana@example.com',
     isLoggedIn: true,
   }
 };
