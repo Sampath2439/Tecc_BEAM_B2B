@@ -82,7 +82,6 @@ export default function Home() {
       originalPrice: 280,
       dealPrice: 240,
       savings: 40,
-      minQuantity: "5 kg pack",
       image: "🌾",
       badge: "HOT DEAL",
     },
@@ -93,9 +92,8 @@ export default function Home() {
       originalPrice: 150,
       dealPrice: 120,
       savings: 30,
-      minQuantity: "2 units",
       image: "🧼",
-      badge: "BULK SAVINGS",
+      badge: "GREAT DEAL",
     },
     {
       id: 3,
@@ -104,7 +102,6 @@ export default function Home() {
       originalPrice: 80,
       dealPrice: 68,
       savings: 12,
-      minQuantity: "1 pack",
       image: "📄",
       badge: "LIMITED TIME",
     },
@@ -344,9 +341,9 @@ export default function Home() {
                     </div>
 
                     <div className="bg-gray-50 rounded-lg p-3 text-center">
-                      <p className="text-sm text-gray-600">Pack Size</p>
+                      <p className="text-sm text-gray-600">Available Now</p>
                       <p className="font-medium text-gray-900">
-                        {deal.minQuantity}
+                        Any Quantity
                       </p>
                     </div>
 
@@ -359,9 +356,7 @@ export default function Home() {
                           price: deal.dealPrice,
                           originalPrice: deal.originalPrice,
                           image: deal.image,
-                          minOrder: deal.minQuantity,
                           category: "Deals",
-                          gstNumber: "GST123456789",
                         };
                         addToCart(cartItem, 1);
                       }}
