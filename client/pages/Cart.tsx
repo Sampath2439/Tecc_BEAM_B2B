@@ -295,56 +295,59 @@ export default function Cart() {
                 </CardContent>
               </Card>
 
-              {/* Benefits */}
-              <Card className="bg-white">
-                <CardContent className="p-6 space-y-4">
-                  <h3 className="font-semibold text-gray-900">Why Shop with Tech BEAM?</h3>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <Shield className="w-5 h-5 text-tech-beam-600 flex-shrink-0" />
-                      <span className="text-sm text-gray-600">GST compliant invoicing</span>
+              {/* Bottom Cards Grid - Side by side on desktop, stacked on mobile */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                {/* Benefits */}
+                <Card className="bg-white">
+                  <CardContent className="p-6 space-y-4">
+                    <h3 className="font-semibold text-gray-900">Why Shop with Tech BEAM?</h3>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <Shield className="w-5 h-5 text-tech-beam-600 flex-shrink-0" />
+                        <span className="text-sm text-gray-600">GST compliant invoicing</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Truck className="w-5 h-5 text-tech-beam-600 flex-shrink-0" />
+                        <span className="text-sm text-gray-600">Fast business delivery</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Package className="w-5 h-5 text-tech-beam-600 flex-shrink-0" />
+                        <span className="text-sm text-gray-600">Bulk order discounts</span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <Truck className="w-5 h-5 text-tech-beam-600 flex-shrink-0" />
-                      <span className="text-sm text-gray-600">Fast business delivery</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Package className="w-5 h-5 text-tech-beam-600 flex-shrink-0" />
-                      <span className="text-sm text-gray-600">Bulk order discounts</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
 
-              {/* Suggested Products */}
-              <Card className="bg-white">
-                <CardHeader>
-                  <CardTitle className="text-lg">You might also like</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="flex items-center gap-3 p-3 border border-gray-200 rounded-lg">
-                    <div className="text-2xl">📄</div>
-                    <div className="flex-1">
-                      <p className="font-medium text-sm">Premium A4 Paper</p>
-                      <p className="text-xs text-gray-600">₹680 per pack</p>
+                {/* Suggested Products */}
+                <Card className="bg-white">
+                  <CardHeader>
+                    <CardTitle className="text-lg">You might also like</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <div className="flex items-center gap-3 p-3 border border-gray-200 rounded-lg">
+                      <div className="text-2xl">📄</div>
+                      <div className="flex-1">
+                        <p className="font-medium text-sm">Premium A4 Paper</p>
+                        <p className="text-xs text-gray-600">₹680 per pack</p>
+                      </div>
+                      <Button size="sm" variant="outline" className="text-xs">
+                        Add
+                      </Button>
                     </div>
-                    <Button size="sm" variant="outline" className="text-xs">
-                      Add
-                    </Button>
-                  </div>
-                  
-                  <div className="flex items-center gap-3 p-3 border border-gray-200 rounded-lg">
-                    <div className="text-2xl">🧼</div>
-                    <div className="flex-1">
-                      <p className="font-medium text-sm">Hand Sanitizer</p>
-                      <p className="text-xs text-gray-600">₹450 per bottle</p>
+
+                    <div className="flex items-center gap-3 p-3 border border-gray-200 rounded-lg">
+                      <div className="text-2xl">🧼</div>
+                      <div className="flex-1">
+                        <p className="font-medium text-sm">Hand Sanitizer</p>
+                        <p className="text-xs text-gray-600">₹450 per bottle</p>
+                      </div>
+                      <Button size="sm" variant="outline" className="text-xs">
+                        Add
+                      </Button>
                     </div>
-                    <Button size="sm" variant="outline" className="text-xs">
-                      Add
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </div>
