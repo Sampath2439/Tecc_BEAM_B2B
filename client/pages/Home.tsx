@@ -79,32 +79,29 @@ export default function Home() {
       id: 1,
       name: "Premium Basmati Rice",
       brand: "Royal Brand",
-      originalPrice: 2800,
-      dealPrice: 2400,
-      savings: 400,
-      minQuantity: "50 kg bags",
+      originalPrice: 280,
+      dealPrice: 240,
+      savings: 40,
       image: "🌾",
       badge: "HOT DEAL",
     },
     {
       id: 2,
-      name: "Industrial Hand Soap",
+      name: "Premium Hand Soap",
       brand: "CleanPro",
-      originalPrice: 1500,
-      dealPrice: 1200,
-      savings: 300,
-      minQuantity: "24 units",
+      originalPrice: 150,
+      dealPrice: 120,
+      savings: 30,
       image: "🧼",
-      badge: "BULK SAVINGS",
+      badge: "GREAT DEAL",
     },
     {
       id: 3,
-      name: "Office Paper A4",
+      name: "A4 Paper Pack",
       brand: "PaperMax",
-      originalPrice: 800,
-      dealPrice: 680,
-      savings: 120,
-      minQuantity: "10 reams",
+      originalPrice: 80,
+      dealPrice: 68,
+      savings: 12,
       image: "📄",
       badge: "LIMITED TIME",
     },
@@ -127,18 +124,18 @@ export default function Home() {
             <div className="space-y-8">
               <div className="space-y-4">
                 <Badge className="bg-tech-beam-500/20 text-tech-beam-100 border-tech-beam-400 px-3 py-1">
-                  ⚡ Wholesale Portal
+                  ⚡ Retail Store
                 </Badge>
                 <h1 className="text-4xl sm:text-6xl font-bold leading-tight">
-                  Buy in <span className="text-tech-beam-200">Bulk</span>,<br />
-                  Manage <span className="text-tech-beam-200">Smart</span>,
+                  Shop <span className="text-tech-beam-200">Smart</span>,<br />
+                  Save <span className="text-tech-beam-200">Big</span>,
                   <br />
-                  Save <span className="text-tech-beam-200">More</span>
+                  Live <span className="text-tech-beam-200">Better</span>
                 </h1>
                 <p className="text-xl text-tech-beam-100 max-w-lg">
-                  Your complete B2B e-commerce solution for wholesale
-                  procurement. Get better prices, streamlined ordering, and
-                  professional invoicing.
+                  Your complete online shopping destination for everyday
+                  essentials. Get best prices, fast delivery, and
+                  amazing deals every day.
                 </p>
               </div>
 
@@ -171,13 +168,13 @@ export default function Home() {
                   <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-2">
                     <Package className="w-6 h-6" />
                   </div>
-                  <p className="text-sm font-medium">Bulk Orders</p>
+                  <p className="text-sm font-medium">Easy Shopping</p>
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-2">
                     <Shield className="w-6 h-6" />
                   </div>
-                  <p className="text-sm font-medium">GST Ready</p>
+                  <p className="text-sm font-medium">Secure Pay</p>
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-2">
@@ -189,7 +186,7 @@ export default function Home() {
                   <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-2">
                     <HeadphonesIcon className="w-6 h-6" />
                   </div>
-                  <p className="text-sm font-medium">B2B Support</p>
+                  <p className="text-sm font-medium">24/7 Support</p>
                 </div>
               </div>
             </div>
@@ -205,23 +202,23 @@ export default function Home() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-white/20 rounded-xl p-4">
-                      <p className="text-2xl font-bold">₹2.4L</p>
-                      <p className="text-sm opacity-80">This Month</p>
+                      <p className="text-2xl font-bold">50%</p>
+                      <p className="text-sm opacity-80">Off Deals</p>
                     </div>
                     <div className="bg-white/20 rounded-xl p-4">
-                      <p className="text-2xl font-bold">156</p>
-                      <p className="text-sm opacity-80">Orders</p>
+                      <p className="text-2xl font-bold">Free</p>
+                      <p className="text-sm opacity-80">Delivery</p>
                     </div>
                   </div>
 
                   <div className="space-y-2">
                     <div className="flex items-center justify-between text-sm">
                       <span>Recent Order</span>
-                      <span className="text-green-300">Delivered</span>
+                      <span className="text-green-300">On Sale</span>
                     </div>
                     <div className="bg-white/20 rounded-lg p-3">
-                      <p className="font-medium">Office Supplies Bundle</p>
-                      <p className="text-sm opacity-80">₹15,600 • 24 items</p>
+                      <p className="font-medium">Electronics Flash Sale</p>
+                      <p className="text-sm opacity-80">Up to 60% Off</p>
                     </div>
                   </div>
                 </div>
@@ -239,7 +236,7 @@ export default function Home() {
               Shop by Category
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Browse our extensive wholesale catalog organized by business
+              Browse our extensive product catalog organized by popular
               categories
             </p>
           </div>
@@ -290,10 +287,10 @@ export default function Home() {
           <div className="flex items-center justify-between mb-12">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                Top Deals for B2B
+                Today's Best Deals
               </h2>
               <p className="text-lg text-gray-600">
-                Exclusive wholesale pricing and bulk discounts
+                Amazing discounts and limited-time offers
               </p>
             </div>
             <Link to="/deals">
@@ -344,9 +341,9 @@ export default function Home() {
                     </div>
 
                     <div className="bg-gray-50 rounded-lg p-3 text-center">
-                      <p className="text-sm text-gray-600">Minimum Order</p>
+                      <p className="text-sm text-gray-600">Available Now</p>
                       <p className="font-medium text-gray-900">
-                        {deal.minQuantity}
+                        Any Quantity
                       </p>
                     </div>
 
@@ -359,9 +356,7 @@ export default function Home() {
                           price: deal.dealPrice,
                           originalPrice: deal.originalPrice,
                           image: deal.image,
-                          minOrder: deal.minQuantity,
                           category: "Deals",
-                          gstNumber: "GST123456789",
                         };
                         addToCart(cartItem, 1);
                       }}
@@ -386,7 +381,7 @@ export default function Home() {
               Why Choose Tech BEAM?
             </h2>
             <p className="text-lg text-gray-600">
-              Built specifically for B2B wholesale operations
+              Your trusted online shopping destination
             </p>
           </div>
 
@@ -396,10 +391,10 @@ export default function Home() {
                 <Package className="w-8 h-8 text-tech-beam-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">
-                Bulk Pricing
+                Best Prices
               </h3>
               <p className="text-gray-600">
-                Wholesale rates and volume discounts for business customers
+                Competitive prices and amazing deals on everyday essentials
               </p>
             </div>
 
@@ -408,10 +403,10 @@ export default function Home() {
                 <Shield className="w-8 h-8 text-tech-beam-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">
-                GST Compliant
+                Secure Shopping
               </h3>
               <p className="text-gray-600">
-                Automated GST calculations and compliant invoice generation
+                Safe and secure payment methods with buyer protection
               </p>
             </div>
 
@@ -420,10 +415,10 @@ export default function Home() {
                 <Clock className="w-8 h-8 text-tech-beam-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">
-                Fast Processing
+                Fast Delivery
               </h3>
               <p className="text-gray-600">
-                Quick order processing and expedited business deliveries
+                Quick order processing and fast home deliveries
               </p>
             </div>
 
@@ -432,10 +427,10 @@ export default function Home() {
                 <Star className="w-8 h-8 text-tech-beam-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">
-                Dedicated Support
+                Great Support
               </h3>
               <p className="text-gray-600">
-                Dedicated account managers and B2B customer support
+                Friendly customer service and 24/7 support assistance
               </p>
             </div>
           </div>
