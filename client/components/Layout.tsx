@@ -4,19 +4,19 @@ import { useApp } from "@/contexts/AppContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Search, 
-  ShoppingCart, 
-  User, 
-  Heart, 
-  Menu, 
-  X, 
+import {
+  Search,
+  ShoppingCart,
+  User,
+  Heart,
+  Menu,
+  X,
   Zap,
   Package,
   FileText,
   Settings,
   LogOut,
-  Bell
+  Bell,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -31,7 +31,10 @@ interface LayoutProps {
   showNavigation?: boolean;
 }
 
-export default function Layout({ children, showNavigation = true }: LayoutProps) {
+export default function Layout({
+  children,
+  showNavigation = true,
+}: LayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -42,13 +45,23 @@ export default function Layout({ children, showNavigation = true }: LayoutProps)
   const wishlistCount = state.wishlist.length;
 
   // Hide footer on checkout, cart, and payment related pages
-  const hideFooterPaths = ['/checkout', '/cart'];
-  const shouldHideFooter = hideFooterPaths.some(path => location.pathname.startsWith(path));
+  const hideFooterPaths = ["/checkout", "/cart"];
+  const shouldHideFooter = hideFooterPaths.some((path) =>
+    location.pathname.startsWith(path),
+  );
 
   const navigation = [
     { name: "Home", href: "/", current: location.pathname === "/" },
-    { name: "Categories", href: "/categories", current: location.pathname === "/categories" },
-    { name: "Products", href: "/products", current: location.pathname === "/products" },
+    {
+      name: "Categories",
+      href: "/categories",
+      current: location.pathname === "/categories",
+    },
+    {
+      name: "Products",
+      href: "/products",
+      current: location.pathname === "/products",
+    },
     { name: "Deals", href: "/deals", current: location.pathname === "/deals" },
   ];
 
@@ -81,7 +94,9 @@ export default function Layout({ children, showNavigation = true }: LayoutProps)
                   <h1 className="text-xl font-bold text-gray-900">
                     Tech <span className="text-tech-beam-600">BEAM</span>
                   </h1>
-                  <p className="text-xs text-gray-500 -mt-1">Wholesale Portal</p>
+                  <p className="text-xs text-gray-500 -mt-1">
+                    Wholesale Portal
+                  </p>
                 </div>
               </Link>
             </div>
@@ -159,12 +174,18 @@ export default function Layout({ children, showNavigation = true }: LayoutProps)
               {/* User Menu */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="flex items-center space-x-2 p-2">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="flex items-center space-x-2 p-2"
+                  >
                     <div className="w-8 h-8 bg-tech-beam-100 rounded-full flex items-center justify-center">
                       <User className="w-4 h-4 text-tech-beam-600" />
                     </div>
                     <div className="hidden lg:block text-left">
-                      <p className="text-sm font-medium text-gray-900">{state.user.company}</p>
+                      <p className="text-sm font-medium text-gray-900">
+                        {state.user.company}
+                      </p>
                       <p className="text-xs text-gray-500">Business Account</p>
                     </div>
                   </Button>
@@ -256,10 +277,12 @@ export default function Layout({ children, showNavigation = true }: LayoutProps)
                   {item.name}
                 </Link>
               ))}
-              
+
               <div className="border-t border-gray-200 pt-3 space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-gray-700">Quick Actions</span>
+                  <span className="text-sm font-medium text-gray-700">
+                    Quick Actions
+                  </span>
                 </div>
                 <div className="flex space-x-4">
                   <Link to="/wishlist" className="flex-1">
@@ -287,60 +310,98 @@ export default function Layout({ children, showNavigation = true }: LayoutProps)
       {/* Footer */}
       {!shouldHideFooter && (
         <footer className="bg-gray-900 text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-tech-beam-600 rounded-xl flex items-center justify-center">
-                  <Zap className="w-6 h-6 text-white" />
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-tech-beam-600 rounded-xl flex items-center justify-center">
+                    <Zap className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold">Tech BEAM</h3>
+                    <p className="text-sm text-gray-400">Wholesale Portal</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold">Tech BEAM</h3>
-                  <p className="text-sm text-gray-400">Wholesale Portal</p>
-                </div>
-              </div>
-              <p className="text-gray-400 text-sm">
-                Your trusted B2B partner for wholesale procurement and business management.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li><Link to="/categories" className="hover:text-white">Browse Categories</Link></li>
-                <li><Link to="/deals" className="hover:text-white">Current Deals</Link></li>
-                <li><Link to="/orders" className="hover:text-white">Order History</Link></li>
-                <li><Link to="/invoices" className="hover:text-white">Invoices</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Support</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li><Link to="/help" className="hover:text-white">Help Center</Link></li>
-                <li><Link to="/contact" className="hover:text-white">Contact Sales</Link></li>
-                <li><Link to="/terms" className="hover:text-white">Terms of Service</Link></li>
-                <li><Link to="/privacy" className="hover:text-white">Privacy Policy</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Business Hours</h4>
-              <div className="text-sm text-gray-400 space-y-1">
-                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                <p>Saturday: 10:00 AM - 4:00 PM</p>
-                <p>Sunday: Closed</p>
-                <p className="pt-2">
-                  <span className="text-tech-beam-400">24/7 Online Ordering</span>
+                <p className="text-gray-400 text-sm">
+                  Your trusted B2B partner for wholesale procurement and
+                  business management.
                 </p>
               </div>
+
+              <div>
+                <h4 className="font-semibold mb-4">Quick Links</h4>
+                <ul className="space-y-2 text-sm text-gray-400">
+                  <li>
+                    <Link to="/categories" className="hover:text-white">
+                      Browse Categories
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/deals" className="hover:text-white">
+                      Current Deals
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/orders" className="hover:text-white">
+                      Order History
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/invoices" className="hover:text-white">
+                      Invoices
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold mb-4">Support</h4>
+                <ul className="space-y-2 text-sm text-gray-400">
+                  <li>
+                    <Link to="/help" className="hover:text-white">
+                      Help Center
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/contact" className="hover:text-white">
+                      Contact Sales
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/terms" className="hover:text-white">
+                      Terms of Service
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/privacy" className="hover:text-white">
+                      Privacy Policy
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold mb-4">Business Hours</h4>
+                <div className="text-sm text-gray-400 space-y-1">
+                  <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                  <p>Saturday: 10:00 AM - 4:00 PM</p>
+                  <p>Sunday: Closed</p>
+                  <p className="pt-2">
+                    <span className="text-tech-beam-400">
+                      24/7 Online Ordering
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+              <p>
+                © 2024 Tech BEAM Wholesale Portal. All rights reserved. |
+                Business Solutions
+              </p>
             </div>
           </div>
-          
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-            <p>© 2024 Tech BEAM Wholesale Portal. All rights reserved. | Business Solutions</p>
-          </div>
-        </div>
         </footer>
       )}
     </div>

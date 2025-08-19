@@ -4,18 +4,18 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useApp } from "@/contexts/AppContext";
-import { 
-  Search, 
-  ArrowRight, 
-  TrendingUp, 
-  Package, 
-  Clock, 
+import {
+  Search,
+  ArrowRight,
+  TrendingUp,
+  Package,
+  Clock,
   Star,
   ShoppingCart,
   Zap,
   Shield,
   Truck,
-  HeadphonesIcon
+  HeadphonesIcon,
 } from "lucide-react";
 import Layout from "@/components/Layout";
 
@@ -36,7 +36,7 @@ export default function Home() {
       id: 2,
       name: "Personal Care",
       image: "🧴",
-      productCount: "1,200+ items", 
+      productCount: "1,200+ items",
       description: "Soaps, Shampoos, Cosmetics, Hygiene",
       color: "bg-pink-100 text-pink-800",
     },
@@ -131,12 +131,14 @@ export default function Home() {
                 </Badge>
                 <h1 className="text-4xl sm:text-6xl font-bold leading-tight">
                   Buy in <span className="text-tech-beam-200">Bulk</span>,<br />
-                  Manage <span className="text-tech-beam-200">Smart</span>,<br />
+                  Manage <span className="text-tech-beam-200">Smart</span>,
+                  <br />
                   Save <span className="text-tech-beam-200">More</span>
                 </h1>
                 <p className="text-xl text-tech-beam-100 max-w-lg">
-                  Your complete B2B e-commerce solution for wholesale procurement. 
-                  Get better prices, streamlined ordering, and professional invoicing.
+                  Your complete B2B e-commerce solution for wholesale
+                  procurement. Get better prices, streamlined ordering, and
+                  professional invoicing.
                 </p>
               </div>
 
@@ -154,7 +156,10 @@ export default function Home() {
                       className="w-full h-12 pl-12 pr-4 rounded-xl border-0 bg-white text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-tech-beam-300"
                     />
                   </div>
-                  <Button type="submit" className="h-12 px-8 bg-white text-tech-beam-700 hover:bg-tech-beam-50 font-semibold rounded-xl">
+                  <Button
+                    type="submit"
+                    className="h-12 px-8 bg-white text-tech-beam-700 hover:bg-tech-beam-50 font-semibold rounded-xl"
+                  >
                     Search
                   </Button>
                 </form>
@@ -197,7 +202,7 @@ export default function Home() {
                     <h3 className="text-xl font-semibold">Dashboard Preview</h3>
                     <Badge className="bg-green-500 text-white">Live</Badge>
                   </div>
-                  
+
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-white/20 rounded-xl p-4">
                       <p className="text-2xl font-bold">₹2.4L</p>
@@ -208,7 +213,7 @@ export default function Home() {
                       <p className="text-sm opacity-80">Orders</p>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-2">
                     <div className="flex items-center justify-between text-sm">
                       <span>Recent Order</span>
@@ -230,9 +235,12 @@ export default function Home() {
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Shop by Category</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Shop by Category
+            </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Browse our extensive wholesale catalog organized by business categories
+              Browse our extensive wholesale catalog organized by business
+              categories
             </p>
           </div>
 
@@ -253,7 +261,9 @@ export default function Home() {
                         <Badge className={`${category.color} text-xs mb-2`}>
                           {category.productCount}
                         </Badge>
-                        <p className="text-sm text-gray-600">{category.description}</p>
+                        <p className="text-sm text-gray-600">
+                          {category.description}
+                        </p>
                       </div>
                     </div>
                   </CardContent>
@@ -263,7 +273,10 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-8">
-            <Button variant="outline" className="border-tech-beam-300 text-tech-beam-700 hover:bg-tech-beam-50">
+            <Button
+              variant="outline"
+              className="border-tech-beam-300 text-tech-beam-700 hover:bg-tech-beam-50"
+            >
               View All Categories
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
@@ -276,8 +289,12 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-12">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">Top Deals for B2B</h2>
-              <p className="text-lg text-gray-600">Exclusive wholesale pricing and bulk discounts</p>
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                Top Deals for B2B
+              </h2>
+              <p className="text-lg text-gray-600">
+                Exclusive wholesale pricing and bulk discounts
+              </p>
             </div>
             <Link to="/deals">
               <Button className="bg-tech-beam-600 hover:bg-tech-beam-700">
@@ -289,25 +306,34 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {topDeals.map((deal) => (
-              <Card key={deal.id} className="group hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+              <Card
+                key={deal.id}
+                className="group hover:shadow-lg transition-all duration-300 relative overflow-hidden"
+              >
                 <div className="absolute top-4 left-4 z-10">
                   <Badge className="bg-red-500 text-white font-medium">
                     {deal.badge}
                   </Badge>
                 </div>
-                
+
                 <CardContent className="p-6">
                   <div className="text-center mb-6">
                     <div className="text-6xl mb-4">{deal.image}</div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-1">{deal.name}</h3>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-1">
+                      {deal.name}
+                    </h3>
                     <p className="text-sm text-gray-600">{deal.brand}</p>
                   </div>
 
                   <div className="space-y-4">
                     <div className="text-center">
                       <div className="flex items-center justify-center space-x-2 mb-2">
-                        <span className="text-2xl font-bold text-tech-beam-600">₹{deal.dealPrice.toLocaleString()}</span>
-                        <span className="text-lg text-gray-400 line-through">₹{deal.originalPrice.toLocaleString()}</span>
+                        <span className="text-2xl font-bold text-tech-beam-600">
+                          ₹{deal.dealPrice.toLocaleString()}
+                        </span>
+                        <span className="text-lg text-gray-400 line-through">
+                          ₹{deal.originalPrice.toLocaleString()}
+                        </span>
                       </div>
                       <div className="flex items-center justify-center space-x-2">
                         <TrendingUp className="w-4 h-4 text-green-600" />
@@ -319,7 +345,9 @@ export default function Home() {
 
                     <div className="bg-gray-50 rounded-lg p-3 text-center">
                       <p className="text-sm text-gray-600">Minimum Order</p>
-                      <p className="font-medium text-gray-900">{deal.minQuantity}</p>
+                      <p className="font-medium text-gray-900">
+                        {deal.minQuantity}
+                      </p>
                     </div>
 
                     <Button
@@ -333,7 +361,7 @@ export default function Home() {
                           image: deal.image,
                           minOrder: deal.minQuantity,
                           category: "Deals",
-                          gstNumber: "GST123456789"
+                          gstNumber: "GST123456789",
                         };
                         addToCart(cartItem, 1);
                       }}
@@ -354,8 +382,12 @@ export default function Home() {
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose Tech BEAM?</h2>
-            <p className="text-lg text-gray-600">Built specifically for B2B wholesale operations</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Why Choose Tech BEAM?
+            </h2>
+            <p className="text-lg text-gray-600">
+              Built specifically for B2B wholesale operations
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -363,32 +395,48 @@ export default function Home() {
               <div className="w-16 h-16 bg-tech-beam-100 rounded-2xl flex items-center justify-center mx-auto">
                 <Package className="w-8 h-8 text-tech-beam-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900">Bulk Pricing</h3>
-              <p className="text-gray-600">Wholesale rates and volume discounts for business customers</p>
+              <h3 className="text-xl font-semibold text-gray-900">
+                Bulk Pricing
+              </h3>
+              <p className="text-gray-600">
+                Wholesale rates and volume discounts for business customers
+              </p>
             </div>
 
             <div className="text-center space-y-4">
               <div className="w-16 h-16 bg-tech-beam-100 rounded-2xl flex items-center justify-center mx-auto">
                 <Shield className="w-8 h-8 text-tech-beam-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900">GST Compliant</h3>
-              <p className="text-gray-600">Automated GST calculations and compliant invoice generation</p>
+              <h3 className="text-xl font-semibold text-gray-900">
+                GST Compliant
+              </h3>
+              <p className="text-gray-600">
+                Automated GST calculations and compliant invoice generation
+              </p>
             </div>
 
             <div className="text-center space-y-4">
               <div className="w-16 h-16 bg-tech-beam-100 rounded-2xl flex items-center justify-center mx-auto">
                 <Clock className="w-8 h-8 text-tech-beam-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900">Fast Processing</h3>
-              <p className="text-gray-600">Quick order processing and expedited business deliveries</p>
+              <h3 className="text-xl font-semibold text-gray-900">
+                Fast Processing
+              </h3>
+              <p className="text-gray-600">
+                Quick order processing and expedited business deliveries
+              </p>
             </div>
 
             <div className="text-center space-y-4">
               <div className="w-16 h-16 bg-tech-beam-100 rounded-2xl flex items-center justify-center mx-auto">
                 <Star className="w-8 h-8 text-tech-beam-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900">Dedicated Support</h3>
-              <p className="text-gray-600">Dedicated account managers and B2B customer support</p>
+              <h3 className="text-xl font-semibold text-gray-900">
+                Dedicated Support
+              </h3>
+              <p className="text-gray-600">
+                Dedicated account managers and B2B customer support
+              </p>
             </div>
           </div>
         </div>

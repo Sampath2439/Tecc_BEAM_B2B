@@ -7,21 +7,21 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Slider } from "@/components/ui/slider";
 import { useApp } from "@/contexts/AppContext";
-import { 
-  Search, 
-  Filter, 
-  X, 
-  ChevronDown, 
-  ChevronUp, 
-  Star, 
-  ShoppingCart, 
+import {
+  Search,
+  Filter,
+  X,
+  ChevronDown,
+  ChevronUp,
+  Star,
+  ShoppingCart,
   Heart,
   Package,
   Truck,
   Shield,
   Grid3X3,
   List,
-  SlidersHorizontal
+  SlidersHorizontal,
 } from "lucide-react";
 import Layout from "@/components/Layout";
 import {
@@ -57,7 +57,9 @@ export default function Products() {
   const [priceRange, setPriceRange] = useState([0, 100000]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
-  const [selectedAvailability, setSelectedAvailability] = useState<string[]>([]);
+  const [selectedAvailability, setSelectedAvailability] = useState<string[]>(
+    [],
+  );
   const [showFilters, setShowFilters] = useState(false);
   const { addToCart, toggleWishlist, isInWishlist, isInCart } = useApp();
 
@@ -76,7 +78,8 @@ export default function Products() {
       inStock: true,
       stockLevel: "high",
       minOrder: "50 kg bags",
-      description: "Premium quality aged basmati rice, perfect for retail and hospitality",
+      description:
+        "Premium quality aged basmati rice, perfect for retail and hospitality",
       gstNumber: "GST123456789",
       isFeatured: true,
     },
@@ -191,16 +194,19 @@ export default function Products() {
     },
   ];
 
-  const categories = [...new Set(allProducts.map(p => p.category))];
-  const brands = [...new Set(allProducts.map(p => p.brand))];
+  const categories = [...new Set(allProducts.map((p) => p.category))];
+  const brands = [...new Set(allProducts.map((p) => p.brand))];
   const availabilityOptions = ["In Stock", "Low Stock", "Out of Stock"];
 
   // Filter products based on current filters
-  const filteredProducts = allProducts.filter(product => {
+  const filteredProducts = allProducts.filter((product) => {
     // Search query filter
-    if (searchQuery && !product.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
-        !product.brand.toLowerCase().includes(searchQuery.toLowerCase()) &&
-        !product.category.toLowerCase().includes(searchQuery.toLowerCase())) {
+    if (
+      searchQuery &&
+      !product.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
+      !product.brand.toLowerCase().includes(searchQuery.toLowerCase()) &&
+      !product.category.toLowerCase().includes(searchQuery.toLowerCase())
+    ) {
       return false;
     }
 
@@ -210,7 +216,10 @@ export default function Products() {
     }
 
     // Category filter
-    if (selectedCategories.length > 0 && !selectedCategories.includes(product.category)) {
+    if (
+      selectedCategories.length > 0 &&
+      !selectedCategories.includes(product.category)
+    ) {
       return false;
     }
 
@@ -221,9 +230,11 @@ export default function Products() {
 
     // Availability filter
     if (selectedAvailability.length > 0) {
-      const availability = product.inStock ? 
-        (product.stockLevel === "low" ? "Low Stock" : "In Stock") : 
-        "Out of Stock";
+      const availability = product.inStock
+        ? product.stockLevel === "low"
+          ? "Low Stock"
+          : "In Stock"
+        : "Out of Stock";
       if (!selectedAvailability.includes(availability)) {
         return false;
       }
@@ -257,7 +268,10 @@ export default function Products() {
     setSearchParams({});
   };
 
-  const activeFiltersCount = selectedCategories.length + selectedBrands.length + selectedAvailability.length;
+  const activeFiltersCount =
+    selectedCategories.length +
+    selectedBrands.length +
+    selectedAvailability.length;
 
   return (
     <Layout>
@@ -269,10 +283,12 @@ export default function Products() {
               <div className="flex items-center justify-between">
                 <div>
                   <h1 className="text-3xl font-bold text-gray-900">Products</h1>
-                  <p className="text-gray-600">{sortedProducts.length} products found</p>
+                  <p className="text-gray-600">
+                    {sortedProducts.length} products found
+                  </p>
                 </div>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   onClick={() => setShowFilters(!showFilters)}
                   className="lg:hidden"
                 >
@@ -339,7 +355,9 @@ export default function Products() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex gap-6">
             {/* Sidebar Filters */}
-            <div className={`${showFilters ? "block" : "hidden"} lg:block w-full lg:w-64 space-y-6`}>
+            <div
+              className={`${showFilters ? "block" : "hidden"} lg:block w-full lg:w-64 space-y-6`}
+            >
               <div className="bg-white rounded-lg p-6 shadow-sm">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-semibold text-gray-900">Filters</h3>
@@ -353,7 +371,9 @@ export default function Products() {
                 {/* Price Range */}
                 <Collapsible defaultOpen>
                   <CollapsibleTrigger className="flex items-center justify-between w-full py-2">
-                    <span className="font-medium text-gray-700">Price Range</span>
+                    <span className="font-medium text-gray-700">
+                      Price Range
+                    </span>
                     <ChevronDown className="w-4 h-4" />
                   </CollapsibleTrigger>
                   <CollapsibleContent className="space-y-4 pt-2">
@@ -376,24 +396,39 @@ export default function Products() {
                 {/* Categories */}
                 <Collapsible defaultOpen>
                   <CollapsibleTrigger className="flex items-center justify-between w-full py-2 border-t pt-4">
-                    <span className="font-medium text-gray-700">Categories</span>
+                    <span className="font-medium text-gray-700">
+                      Categories
+                    </span>
                     <ChevronDown className="w-4 h-4" />
                   </CollapsibleTrigger>
                   <CollapsibleContent className="space-y-3 pt-2">
                     {categories.map((category) => (
-                      <div key={category} className="flex items-center space-x-2">
+                      <div
+                        key={category}
+                        className="flex items-center space-x-2"
+                      >
                         <Checkbox
                           id={`cat-${category}`}
                           checked={selectedCategories.includes(category)}
                           onCheckedChange={(checked) => {
                             if (checked) {
-                              setSelectedCategories([...selectedCategories, category]);
+                              setSelectedCategories([
+                                ...selectedCategories,
+                                category,
+                              ]);
                             } else {
-                              setSelectedCategories(selectedCategories.filter(c => c !== category));
+                              setSelectedCategories(
+                                selectedCategories.filter(
+                                  (c) => c !== category,
+                                ),
+                              );
                             }
                           }}
                         />
-                        <label htmlFor={`cat-${category}`} className="text-sm text-gray-700 cursor-pointer">
+                        <label
+                          htmlFor={`cat-${category}`}
+                          className="text-sm text-gray-700 cursor-pointer"
+                        >
                           {category}
                         </label>
                       </div>
@@ -417,11 +452,16 @@ export default function Products() {
                             if (checked) {
                               setSelectedBrands([...selectedBrands, brand]);
                             } else {
-                              setSelectedBrands(selectedBrands.filter(b => b !== brand));
+                              setSelectedBrands(
+                                selectedBrands.filter((b) => b !== brand),
+                              );
                             }
                           }}
                         />
-                        <label htmlFor={`brand-${brand}`} className="text-sm text-gray-700 cursor-pointer">
+                        <label
+                          htmlFor={`brand-${brand}`}
+                          className="text-sm text-gray-700 cursor-pointer"
+                        >
                           {brand}
                         </label>
                       </div>
@@ -432,7 +472,9 @@ export default function Products() {
                 {/* Availability */}
                 <Collapsible defaultOpen>
                   <CollapsibleTrigger className="flex items-center justify-between w-full py-2 border-t pt-4">
-                    <span className="font-medium text-gray-700">Availability</span>
+                    <span className="font-medium text-gray-700">
+                      Availability
+                    </span>
                     <ChevronDown className="w-4 h-4" />
                   </CollapsibleTrigger>
                   <CollapsibleContent className="space-y-3 pt-2">
@@ -443,13 +485,23 @@ export default function Products() {
                           checked={selectedAvailability.includes(option)}
                           onCheckedChange={(checked) => {
                             if (checked) {
-                              setSelectedAvailability([...selectedAvailability, option]);
+                              setSelectedAvailability([
+                                ...selectedAvailability,
+                                option,
+                              ]);
                             } else {
-                              setSelectedAvailability(selectedAvailability.filter(a => a !== option));
+                              setSelectedAvailability(
+                                selectedAvailability.filter(
+                                  (a) => a !== option,
+                                ),
+                              );
                             }
                           }}
                         />
-                        <label htmlFor={`avail-${option}`} className="text-sm text-gray-700 cursor-pointer">
+                        <label
+                          htmlFor={`avail-${option}`}
+                          className="text-sm text-gray-700 cursor-pointer"
+                        >
                           {option}
                         </label>
                       </div>
@@ -502,23 +554,27 @@ export default function Products() {
                                       image: product.image,
                                       category: product.category,
                                       rating: product.rating,
-                                      reviewCount: product.reviewCount
+                                      reviewCount: product.reviewCount,
                                     };
                                     toggleWishlist(wishlistItem);
                                   }}
                                 >
-                                  <Heart className={`w-4 h-4 ${isInWishlist(product.id) ? 'fill-current text-red-500' : ''}`} />
+                                  <Heart
+                                    className={`w-4 h-4 ${isInWishlist(product.id) ? "fill-current text-red-500" : ""}`}
+                                  />
                                 </Button>
                               </div>
                             </div>
 
                             {/* Product Info */}
                             <div className="space-y-2">
-                              <p className="text-xs text-gray-500 uppercase">{product.brand}</p>
+                              <p className="text-xs text-gray-500 uppercase">
+                                {product.brand}
+                              </p>
                               <h3 className="font-medium text-gray-900 line-clamp-2 group-hover:text-tech-beam-600 transition-colors">
                                 {product.name}
                               </h3>
-                              
+
                               {/* Rating */}
                               <div className="flex items-center gap-2">
                                 <div className="flex items-center">
@@ -526,8 +582,8 @@ export default function Products() {
                                     <Star
                                       key={i}
                                       className={`w-3 h-3 ${
-                                        i < Math.floor(product.rating) 
-                                          ? "text-yellow-400 fill-current" 
+                                        i < Math.floor(product.rating)
+                                          ? "text-yellow-400 fill-current"
                                           : "text-gray-300"
                                       }`}
                                     />
@@ -550,28 +606,43 @@ export default function Products() {
                                     </span>
                                   )}
                                 </div>
-                                <p className="text-xs text-gray-500">Min order: {product.minOrder}</p>
+                                <p className="text-xs text-gray-500">
+                                  Min order: {product.minOrder}
+                                </p>
                               </div>
 
                               {/* Stock Status */}
                               <div className="flex items-center gap-2">
                                 {product.inStock ? (
-                                  <Badge variant="outline" className={`text-xs ${
-                                    product.stockLevel === "high" ? "text-green-600 border-green-200" :
-                                    product.stockLevel === "medium" ? "text-yellow-600 border-yellow-200" :
-                                    "text-orange-600 border-orange-200"
-                                  }`}>
-                                    {product.stockLevel === "high" ? "In Stock" :
-                                     product.stockLevel === "medium" ? "Limited Stock" :
-                                     "Low Stock"}
+                                  <Badge
+                                    variant="outline"
+                                    className={`text-xs ${
+                                      product.stockLevel === "high"
+                                        ? "text-green-600 border-green-200"
+                                        : product.stockLevel === "medium"
+                                          ? "text-yellow-600 border-yellow-200"
+                                          : "text-orange-600 border-orange-200"
+                                    }`}
+                                  >
+                                    {product.stockLevel === "high"
+                                      ? "In Stock"
+                                      : product.stockLevel === "medium"
+                                        ? "Limited Stock"
+                                        : "Low Stock"}
                                   </Badge>
                                 ) : (
-                                  <Badge variant="outline" className="text-xs text-red-600 border-red-200">
+                                  <Badge
+                                    variant="outline"
+                                    className="text-xs text-red-600 border-red-200"
+                                  >
                                     Out of Stock
                                   </Badge>
                                 )}
                                 {product.isDealer && (
-                                  <Badge variant="outline" className="text-xs text-blue-600 border-blue-200">
+                                  <Badge
+                                    variant="outline"
+                                    className="text-xs text-blue-600 border-blue-200"
+                                  >
                                     <Shield className="w-3 h-3 mr-1" />
                                     Verified
                                   </Badge>
@@ -595,14 +666,18 @@ export default function Products() {
                                       image: product.image,
                                       minOrder: product.minOrder,
                                       category: product.category,
-                                      gstNumber: product.gstNumber
+                                      gstNumber: product.gstNumber,
                                     };
                                     addToCart(cartItem, 1);
                                   }
                                 }}
                               >
                                 <ShoppingCart className="w-4 h-4 mr-2" />
-                                {product.inStock ? (isInCart(product.id) ? "Added to Cart" : "Add to Cart") : "Out of Stock"}
+                                {product.inStock
+                                  ? isInCart(product.id)
+                                    ? "Added to Cart"
+                                    : "Add to Cart"
+                                  : "Out of Stock"}
                               </Button>
                             </div>
                           </div>
@@ -622,7 +697,9 @@ export default function Products() {
                             <div className="flex-1 space-y-2">
                               <div className="flex items-start justify-between">
                                 <div>
-                                  <p className="text-sm text-gray-500 uppercase">{product.brand}</p>
+                                  <p className="text-sm text-gray-500 uppercase">
+                                    {product.brand}
+                                  </p>
                                   <h3 className="text-xl font-semibold text-gray-900 group-hover:text-tech-beam-600 transition-colors">
                                     {product.name}
                                   </h3>
@@ -643,25 +720,29 @@ export default function Products() {
                                       image: product.image,
                                       category: product.category,
                                       rating: product.rating,
-                                      reviewCount: product.reviewCount
+                                      reviewCount: product.reviewCount,
                                     };
                                     toggleWishlist(wishlistItem);
                                   }}
                                 >
-                                  <Heart className={`w-4 h-4 ${isInWishlist(product.id) ? 'fill-current text-red-500' : ''}`} />
+                                  <Heart
+                                    className={`w-4 h-4 ${isInWishlist(product.id) ? "fill-current text-red-500" : ""}`}
+                                  />
                                 </Button>
                               </div>
-                              
-                              <p className="text-gray-600 text-sm">{product.description}</p>
-                              
+
+                              <p className="text-gray-600 text-sm">
+                                {product.description}
+                              </p>
+
                               <div className="flex items-center gap-4">
                                 <div className="flex items-center">
                                   {Array.from({ length: 5 }).map((_, i) => (
                                     <Star
                                       key={i}
                                       className={`w-4 h-4 ${
-                                        i < Math.floor(product.rating) 
-                                          ? "text-yellow-400 fill-current" 
+                                        i < Math.floor(product.rating)
+                                          ? "text-yellow-400 fill-current"
                                           : "text-gray-300"
                                       }`}
                                     />
@@ -670,26 +751,36 @@ export default function Products() {
                                     ({product.reviewCount} reviews)
                                   </span>
                                 </div>
-                                
+
                                 <div className="flex items-center gap-2">
                                   {product.inStock ? (
-                                    <Badge variant="outline" className={`text-xs ${
-                                      product.stockLevel === "high" ? "text-green-600 border-green-200" :
-                                      product.stockLevel === "medium" ? "text-yellow-600 border-yellow-200" :
-                                      "text-orange-600 border-orange-200"
-                                    }`}>
-                                      {product.stockLevel === "high" ? "In Stock" :
-                                       product.stockLevel === "medium" ? "Limited Stock" :
-                                       "Low Stock"}
+                                    <Badge
+                                      variant="outline"
+                                      className={`text-xs ${
+                                        product.stockLevel === "high"
+                                          ? "text-green-600 border-green-200"
+                                          : product.stockLevel === "medium"
+                                            ? "text-yellow-600 border-yellow-200"
+                                            : "text-orange-600 border-orange-200"
+                                      }`}
+                                    >
+                                      {product.stockLevel === "high"
+                                        ? "In Stock"
+                                        : product.stockLevel === "medium"
+                                          ? "Limited Stock"
+                                          : "Low Stock"}
                                     </Badge>
                                   ) : (
-                                    <Badge variant="outline" className="text-xs text-red-600 border-red-200">
+                                    <Badge
+                                      variant="outline"
+                                      className="text-xs text-red-600 border-red-200"
+                                    >
                                       Out of Stock
                                     </Badge>
                                   )}
                                 </div>
                               </div>
-                              
+
                               <div className="flex items-center justify-between">
                                 <div className="space-y-1">
                                   <div className="flex items-center gap-2">
@@ -698,13 +789,16 @@ export default function Products() {
                                     </span>
                                     {product.originalPrice && (
                                       <span className="text-lg text-gray-400 line-through">
-                                        ₹{product.originalPrice.toLocaleString()}
+                                        ₹
+                                        {product.originalPrice.toLocaleString()}
                                       </span>
                                     )}
                                   </div>
-                                  <p className="text-sm text-gray-500">Min order: {product.minOrder}</p>
+                                  <p className="text-sm text-gray-500">
+                                    Min order: {product.minOrder}
+                                  </p>
                                 </div>
-                                
+
                                 <Button
                                   className="bg-tech-beam-600 hover:bg-tech-beam-700 text-white px-8"
                                   disabled={!product.inStock}
@@ -721,14 +815,18 @@ export default function Products() {
                                         image: product.image,
                                         minOrder: product.minOrder,
                                         category: product.category,
-                                        gstNumber: product.gstNumber
+                                        gstNumber: product.gstNumber,
                                       };
                                       addToCart(cartItem, 1);
                                     }
                                   }}
                                 >
                                   <ShoppingCart className="w-4 h-4 mr-2" />
-                                  {product.inStock ? (isInCart(product.id) ? "Added to Cart" : "Add to Cart") : "Out of Stock"}
+                                  {product.inStock
+                                    ? isInCart(product.id)
+                                      ? "Added to Cart"
+                                      : "Add to Cart"
+                                    : "Out of Stock"}
                                 </Button>
                               </div>
                             </div>
@@ -745,8 +843,12 @@ export default function Products() {
                   <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Package className="w-12 h-12 text-gray-400" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">No products found</h3>
-                  <p className="text-gray-600 mb-4">Try adjusting your filters or search terms</p>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    No products found
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    Try adjusting your filters or search terms
+                  </p>
                   <Button onClick={clearFilters} variant="outline">
                     Clear All Filters
                   </Button>

@@ -5,31 +5,31 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { 
-  ShoppingCart, 
-  Plus, 
-  Minus, 
-  Trash2, 
-  Heart, 
-  ArrowLeft, 
+import {
+  ShoppingCart,
+  Plus,
+  Minus,
+  Trash2,
+  Heart,
+  ArrowLeft,
   Package,
   CreditCard,
   Truck,
   Shield,
-  Tag
+  Tag,
 } from "lucide-react";
 import Layout from "@/components/Layout";
 import { useApp } from "@/contexts/AppContext";
 
 export default function Cart() {
-  const { 
-    state, 
-    removeFromCart, 
-    updateCartQuantity, 
-    getCartTotal, 
+  const {
+    state,
+    removeFromCart,
+    updateCartQuantity,
+    getCartTotal,
     getCartItemsCount,
     toggleWishlist,
-    isInWishlist
+    isInWishlist,
   } = useApp();
 
   const cartItems = state.cart;
@@ -65,9 +65,9 @@ export default function Cart() {
       image: item.image,
       category: item.category,
       rating: 4.2, // Default rating
-      reviewCount: 100 // Default review count
+      reviewCount: 100, // Default review count
     };
-    
+
     toggleWishlist(wishlistItem);
     removeFromCart(item.id);
   };
@@ -88,7 +88,8 @@ export default function Cart() {
               </CardHeader>
               <CardContent className="space-y-6">
                 <p className="text-gray-600">
-                  Add some products to your cart to get started with bulk ordering.
+                  Add some products to your cart to get started with bulk
+                  ordering.
                 </p>
                 <div className="space-y-3">
                   <Link to="/products">
@@ -150,7 +151,9 @@ export default function Cart() {
                             <h3 className="text-lg font-semibold text-gray-900">
                               {item.name}
                             </h3>
-                            <p className="text-sm text-gray-600">{item.brand}</p>
+                            <p className="text-sm text-gray-600">
+                              {item.brand}
+                            </p>
                             <Badge variant="outline" className="text-xs mt-1">
                               {item.category}
                             </Badge>
@@ -170,20 +173,32 @@ export default function Cart() {
 
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <span className="text-sm font-medium text-gray-700">Quantity:</span>
+                            <span className="text-sm font-medium text-gray-700">
+                              Quantity:
+                            </span>
                             <div className="flex items-center border border-gray-300 rounded-lg">
                               <Button
                                 variant="ghost"
                                 size="sm"
                                 className="h-8 w-8 p-0"
-                                onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
+                                onClick={() =>
+                                  handleQuantityChange(
+                                    item.id,
+                                    item.quantity - 1,
+                                  )
+                                }
                               >
                                 <Minus className="w-4 h-4" />
                               </Button>
                               <Input
                                 type="number"
                                 value={item.quantity}
-                                onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value) || 0)}
+                                onChange={(e) =>
+                                  handleQuantityChange(
+                                    item.id,
+                                    parseInt(e.target.value) || 0,
+                                  )
+                                }
                                 className="w-16 h-8 text-center border-0 focus:ring-0"
                                 min="0"
                               />
@@ -191,12 +206,19 @@ export default function Cart() {
                                 variant="ghost"
                                 size="sm"
                                 className="h-8 w-8 p-0"
-                                onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
+                                onClick={() =>
+                                  handleQuantityChange(
+                                    item.id,
+                                    item.quantity + 1,
+                                  )
+                                }
                               >
                                 <Plus className="w-4 h-4" />
                               </Button>
                             </div>
-                            <span className="text-sm text-gray-500">({item.minOrder})</span>
+                            <span className="text-sm text-gray-500">
+                              ({item.minOrder})
+                            </span>
                           </div>
 
                           <div className="flex items-center gap-2">
@@ -206,8 +228,12 @@ export default function Cart() {
                               onClick={() => handleMoveToWishlist(item)}
                               className="text-gray-600 hover:text-tech-beam-600"
                             >
-                              <Heart className={`w-4 h-4 mr-1 ${isInWishlist(item.id) ? 'fill-current text-red-500' : ''}`} />
-                              {isInWishlist(item.id) ? 'In Wishlist' : 'Move to Wishlist'}
+                              <Heart
+                                className={`w-4 h-4 mr-1 ${isInWishlist(item.id) ? "fill-current text-red-500" : ""}`}
+                              />
+                              {isInWishlist(item.id)
+                                ? "In Wishlist"
+                                : "Move to Wishlist"}
                             </Button>
                             <Button
                               variant="ghost"
@@ -249,15 +275,21 @@ export default function Cart() {
                 <CardContent className="space-y-4">
                   <div className="space-y-3">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Subtotal ({cartItemsCount} items)</span>
-                      <span className="font-medium">₹{subtotal.toLocaleString()}</span>
+                      <span className="text-gray-600">
+                        Subtotal ({cartItemsCount} items)
+                      </span>
+                      <span className="font-medium">
+                        ₹{subtotal.toLocaleString()}
+                      </span>
                     </div>
-                    
+
                     <div className="flex justify-between">
                       <span className="text-gray-600">GST (18%)</span>
-                      <span className="font-medium">₹{gstAmount.toLocaleString()}</span>
+                      <span className="font-medium">
+                        ₹{gstAmount.toLocaleString()}
+                      </span>
                     </div>
-                    
+
                     <div className="flex justify-between">
                       <span className="text-gray-600">Shipping</span>
                       <span className="font-medium">
@@ -268,21 +300,27 @@ export default function Cart() {
                         )}
                       </span>
                     </div>
-                    
+
                     {subtotal < freeShippingThreshold && (
                       <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
                         <p className="text-sm text-yellow-800">
                           <Tag className="w-4 h-4 inline mr-1" />
-                          Add ₹{(freeShippingThreshold - subtotal).toLocaleString()} more for FREE shipping
+                          Add ₹
+                          {(
+                            freeShippingThreshold - subtotal
+                          ).toLocaleString()}{" "}
+                          more for FREE shipping
                         </p>
                       </div>
                     )}
-                    
+
                     <Separator />
-                    
+
                     <div className="flex justify-between text-lg font-bold">
                       <span>Total</span>
-                      <span className="text-tech-beam-600">₹{finalTotal.toLocaleString()}</span>
+                      <span className="text-tech-beam-600">
+                        ₹{finalTotal.toLocaleString()}
+                      </span>
                     </div>
                   </div>
 
@@ -300,19 +338,27 @@ export default function Cart() {
                 {/* Benefits */}
                 <Card className="bg-white">
                   <CardContent className="p-6 space-y-4">
-                    <h3 className="font-semibold text-gray-900">Why Shop with Tech BEAM?</h3>
+                    <h3 className="font-semibold text-gray-900">
+                      Why Shop with Tech BEAM?
+                    </h3>
                     <div className="space-y-3">
                       <div className="flex items-center gap-3">
                         <Shield className="w-5 h-5 text-tech-beam-600 flex-shrink-0" />
-                        <span className="text-sm text-gray-600">GST compliant invoicing</span>
+                        <span className="text-sm text-gray-600">
+                          GST compliant invoicing
+                        </span>
                       </div>
                       <div className="flex items-center gap-3">
                         <Truck className="w-5 h-5 text-tech-beam-600 flex-shrink-0" />
-                        <span className="text-sm text-gray-600">Fast business delivery</span>
+                        <span className="text-sm text-gray-600">
+                          Fast business delivery
+                        </span>
                       </div>
                       <div className="flex items-center gap-3">
                         <Package className="w-5 h-5 text-tech-beam-600 flex-shrink-0" />
-                        <span className="text-sm text-gray-600">Bulk order discounts</span>
+                        <span className="text-sm text-gray-600">
+                          Bulk order discounts
+                        </span>
                       </div>
                     </div>
                   </CardContent>
@@ -321,7 +367,9 @@ export default function Cart() {
                 {/* Suggested Products */}
                 <Card className="bg-white">
                   <CardHeader>
-                    <CardTitle className="text-lg">You might also like</CardTitle>
+                    <CardTitle className="text-lg">
+                      You might also like
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3">
                     <div className="flex items-center gap-3 p-3 border border-gray-200 rounded-lg">
