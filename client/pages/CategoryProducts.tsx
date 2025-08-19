@@ -53,7 +53,13 @@ const categoryData = {
     description: "Fresh groceries, packaged foods, and daily essentials",
     image: "🛒",
     color: "bg-green-100 text-green-800",
-    subcategories: ["Rice & Grains", "Spices & Seasonings", "Packaged Foods", "Beverages", "Cooking Oils"],
+    subcategories: [
+      "Rice & Grains",
+      "Spices & Seasonings",
+      "Packaged Foods",
+      "Beverages",
+      "Cooking Oils",
+    ],
   },
   2: {
     name: "Personal Care",
@@ -61,7 +67,13 @@ const categoryData = {
     description: "Soaps, shampoos, cosmetics, and hygiene products",
     image: "🧴",
     color: "bg-pink-100 text-pink-800",
-    subcategories: ["Bath & Body", "Hair Care", "Oral Care", "Skincare", "Fragrances"],
+    subcategories: [
+      "Bath & Body",
+      "Hair Care",
+      "Oral Care",
+      "Skincare",
+      "Fragrances",
+    ],
   },
   3: {
     name: "Electronics",
@@ -69,7 +81,13 @@ const categoryData = {
     description: "Phones, accessories, and electronic gadgets",
     image: "📱",
     color: "bg-blue-100 text-blue-800",
-    subcategories: ["Mobile Phones", "Accessories", "Audio", "Smart Devices", "Computers"],
+    subcategories: [
+      "Mobile Phones",
+      "Accessories",
+      "Audio",
+      "Smart Devices",
+      "Computers",
+    ],
   },
   4: {
     name: "Home & Cleaning",
@@ -77,7 +95,13 @@ const categoryData = {
     description: "Detergents, cleaners, and household items",
     image: "🏠",
     color: "bg-purple-100 text-purple-800",
-    subcategories: ["Detergents", "Cleaners", "Kitchen Items", "Home Decor", "Storage"],
+    subcategories: [
+      "Detergents",
+      "Cleaners",
+      "Kitchen Items",
+      "Home Decor",
+      "Storage",
+    ],
   },
   5: {
     name: "Office & Stationery",
@@ -85,7 +109,13 @@ const categoryData = {
     description: "Stationery, paper, and office equipment",
     image: "📄",
     color: "bg-orange-100 text-orange-800",
-    subcategories: ["Paper Products", "Writing Instruments", "Filing & Storage", "Printing Supplies", "Desk Accessories"],
+    subcategories: [
+      "Paper Products",
+      "Writing Instruments",
+      "Filing & Storage",
+      "Printing Supplies",
+      "Desk Accessories",
+    ],
   },
   6: {
     name: "Health & Wellness",
@@ -93,7 +123,13 @@ const categoryData = {
     description: "Supplements, first aid, and health products",
     image: "💊",
     color: "bg-red-100 text-red-800",
-    subcategories: ["Supplements", "First Aid", "Health Devices", "Fitness Equipment", "Medical Supplies"],
+    subcategories: [
+      "Supplements",
+      "First Aid",
+      "Health Devices",
+      "Fitness Equipment",
+      "Medical Supplies",
+    ],
   },
   7: {
     name: "Textiles & Apparel",
@@ -101,7 +137,13 @@ const categoryData = {
     description: "Clothing, fabrics, and textile products",
     image: "👕",
     color: "bg-indigo-100 text-indigo-800",
-    subcategories: ["Men's Wear", "Women's Wear", "Kids Wear", "Fabrics", "Accessories"],
+    subcategories: [
+      "Men's Wear",
+      "Women's Wear",
+      "Kids Wear",
+      "Fabrics",
+      "Accessories",
+    ],
   },
   8: {
     name: "Sports & Fitness",
@@ -109,12 +151,19 @@ const categoryData = {
     description: "Sports equipment, fitness gear, and recreational products",
     image: "⚽",
     color: "bg-yellow-100 text-yellow-800",
-    subcategories: ["Fitness Equipment", "Sports Gear", "Outdoor Activities", "Nutrition", "Athletic Wear"],
+    subcategories: [
+      "Fitness Equipment",
+      "Sports Gear",
+      "Outdoor Activities",
+      "Nutrition",
+      "Athletic Wear",
+    ],
   },
 };
 
 const mockProducts: Record<number, Product[]> = {
-  1: [ // Groceries & Food
+  1: [
+    // Groceries & Food
     {
       id: 101,
       name: "Premium Basmati Rice",
@@ -127,7 +176,8 @@ const mockProducts: Record<number, Product[]> = {
       reviewCount: 1234,
       inStock: true,
       stockLevel: "high",
-      description: "Premium quality basmati rice with long grains and aromatic fragrance",
+      description:
+        "Premium quality basmati rice with long grains and aromatic fragrance",
       subcategory: "Rice & Grains",
       discount: 14,
     },
@@ -143,7 +193,8 @@ const mockProducts: Record<number, Product[]> = {
       reviewCount: 856,
       inStock: true,
       stockLevel: "medium",
-      description: "Pure organic turmeric powder for cooking and health benefits",
+      description:
+        "Pure organic turmeric powder for cooking and health benefits",
       subcategory: "Spices & Seasonings",
       discount: 10,
     },
@@ -192,7 +243,8 @@ const mockProducts: Record<number, Product[]> = {
       subcategory: "Cooking Oils",
     },
   ],
-  2: [ // Personal Care
+  2: [
+    // Personal Care
     {
       id: 201,
       name: "Premium Hand Soap",
@@ -254,7 +306,8 @@ const mockProducts: Record<number, Product[]> = {
       subcategory: "Skincare",
     },
   ],
-  3: [ // Electronics
+  3: [
+    // Electronics
     {
       id: 301,
       name: "Wireless Earphones",
@@ -316,7 +369,8 @@ const mockProducts: Record<number, Product[]> = {
       subcategory: "Smart Devices",
     },
   ],
-  4: [ // Home & Cleaning
+  4: [
+    // Home & Cleaning
     {
       id: 401,
       name: "All-Purpose Cleaner",
@@ -362,7 +416,8 @@ const mockProducts: Record<number, Product[]> = {
       subcategory: "Kitchen Items",
     },
   ],
-  5: [ // Office Supplies
+  5: [
+    // Office Supplies
     {
       id: 501,
       name: "A4 Paper Pack",
@@ -408,7 +463,8 @@ const mockProducts: Record<number, Product[]> = {
       subcategory: "Storage",
     },
   ],
-  6: [ // Health & Wellness
+  6: [
+    // Health & Wellness
     {
       id: 601,
       name: "Vitamin C Tablets",
@@ -454,7 +510,8 @@ const mockProducts: Record<number, Product[]> = {
       subcategory: "Fitness Equipment",
     },
   ],
-  7: [ // Textiles & Apparel
+  7: [
+    // Textiles & Apparel
     {
       id: 701,
       name: "Cotton T-Shirt",
@@ -516,7 +573,8 @@ const mockProducts: Record<number, Product[]> = {
       subcategory: "Kids Wear",
     },
   ],
-  8: [ // Sports & Fitness
+  8: [
+    // Sports & Fitness
     {
       id: 801,
       name: "Yoga Mat",
@@ -587,7 +645,9 @@ export default function CategoryProducts() {
   let categoryId: number;
   if (id && isNaN(parseInt(id))) {
     // It's a slug, find the category ID
-    const foundCategory = Object.entries(categoryData).find(([_, cat]) => cat.slug === id);
+    const foundCategory = Object.entries(categoryData).find(
+      ([_, cat]) => cat.slug === id,
+    );
     categoryId = foundCategory ? parseInt(foundCategory[0]) : 1;
   } else {
     // It's a numeric ID
@@ -601,26 +661,34 @@ export default function CategoryProducts() {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [sortBy, setSortBy] = useState("featured");
   const [priceRange, setPriceRange] = useState([0, 5000]);
-  const [selectedSubcategories, setSelectedSubcategories] = useState<string[]>([]);
+  const [selectedSubcategories, setSelectedSubcategories] = useState<string[]>(
+    [],
+  );
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [showFilters, setShowFilters] = useState(false);
 
   const { addToCart, toggleWishlist, isInWishlist } = useApp();
 
   const brands = useMemo(() => {
-    return Array.from(new Set(products.map(p => p.brand)));
+    return Array.from(new Set(products.map((p) => p.brand)));
   }, [products]);
 
   const filteredProducts = useMemo(() => {
-    let filtered = products.filter(product => {
-      const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          product.brand.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesPrice = product.price >= priceRange[0] && product.price <= priceRange[1];
-      const matchesSubcategory = selectedSubcategories.length === 0 || 
-                                selectedSubcategories.includes(product.subcategory);
-      const matchesBrand = selectedBrands.length === 0 || selectedBrands.includes(product.brand);
-      
-      return matchesSearch && matchesPrice && matchesSubcategory && matchesBrand;
+    let filtered = products.filter((product) => {
+      const matchesSearch =
+        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.brand.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesPrice =
+        product.price >= priceRange[0] && product.price <= priceRange[1];
+      const matchesSubcategory =
+        selectedSubcategories.length === 0 ||
+        selectedSubcategories.includes(product.subcategory);
+      const matchesBrand =
+        selectedBrands.length === 0 || selectedBrands.includes(product.brand);
+
+      return (
+        matchesSearch && matchesPrice && matchesSubcategory && matchesBrand
+      );
     });
 
     // Sort products
@@ -635,15 +703,26 @@ export default function CategoryProducts() {
     }
 
     return filtered;
-  }, [products, searchQuery, priceRange, selectedSubcategories, selectedBrands, sortBy]);
+  }, [
+    products,
+    searchQuery,
+    priceRange,
+    selectedSubcategories,
+    selectedBrands,
+    sortBy,
+  ]);
 
   if (!category) {
     return (
       <Layout>
         <div className="flex items-center justify-center min-h-96">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">Category Not Found</h1>
-            <p className="text-gray-600 mb-4">The requested category could not be found.</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">
+              Category Not Found
+            </h1>
+            <p className="text-gray-600 mb-4">
+              The requested category could not be found.
+            </p>
             <Link to="/categories">
               <Button>Browse All Categories</Button>
             </Link>
@@ -666,11 +745,13 @@ export default function CategoryProducts() {
               </Button>
             </Link>
           </div>
-          
+
           <div className="flex items-center gap-4 mb-4">
             <div className="text-4xl">{category.image}</div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">{category.name}</h1>
+              <h1 className="text-3xl font-bold text-gray-900">
+                {category.name}
+              </h1>
               <p className="text-lg text-gray-600">{category.description}</p>
             </div>
           </div>
@@ -686,7 +767,7 @@ export default function CategoryProducts() {
                   className="pl-10"
                 />
               </div>
-              
+
               <Button
                 variant="outline"
                 onClick={() => setShowFilters(!showFilters)}
@@ -698,7 +779,7 @@ export default function CategoryProducts() {
             </div>
 
             <div className="flex items-center gap-2">
-              <select 
+              <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
                 className="border border-gray-300 rounded-lg px-3 py-2 text-sm"
@@ -736,7 +817,9 @@ export default function CategoryProducts() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex gap-8">
           {/* Sidebar Filters */}
-          <aside className={`w-64 space-y-6 ${showFilters ? 'block' : 'hidden lg:block'}`}>
+          <aside
+            className={`w-64 space-y-6 ${showFilters ? "block" : "hidden lg:block"}`}
+          >
             <Card>
               <CardContent className="p-4 space-y-4">
                 <h3 className="font-semibold text-gray-900">Price Range</h3>
@@ -761,19 +844,32 @@ export default function CategoryProducts() {
                 <h3 className="font-semibold text-gray-900">Subcategories</h3>
                 <div className="space-y-2">
                   {category.subcategories.map((subcategory) => (
-                    <div key={subcategory} className="flex items-center space-x-2">
+                    <div
+                      key={subcategory}
+                      className="flex items-center space-x-2"
+                    >
                       <Checkbox
                         id={subcategory}
                         checked={selectedSubcategories.includes(subcategory)}
                         onCheckedChange={(checked) => {
                           if (checked) {
-                            setSelectedSubcategories([...selectedSubcategories, subcategory]);
+                            setSelectedSubcategories([
+                              ...selectedSubcategories,
+                              subcategory,
+                            ]);
                           } else {
-                            setSelectedSubcategories(selectedSubcategories.filter(s => s !== subcategory));
+                            setSelectedSubcategories(
+                              selectedSubcategories.filter(
+                                (s) => s !== subcategory,
+                              ),
+                            );
                           }
                         }}
                       />
-                      <label htmlFor={subcategory} className="text-sm text-gray-700">
+                      <label
+                        htmlFor={subcategory}
+                        className="text-sm text-gray-700"
+                      >
                         {subcategory}
                       </label>
                     </div>
@@ -795,7 +891,9 @@ export default function CategoryProducts() {
                           if (checked) {
                             setSelectedBrands([...selectedBrands, brand]);
                           } else {
-                            setSelectedBrands(selectedBrands.filter(b => b !== brand));
+                            setSelectedBrands(
+                              selectedBrands.filter((b) => b !== brand),
+                            );
                           }
                         }}
                       />
@@ -820,7 +918,10 @@ export default function CategoryProducts() {
             {viewMode === "grid" ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {filteredProducts.map((product) => (
-                  <Card key={product.id} className="group hover:shadow-lg transition-all duration-300">
+                  <Card
+                    key={product.id}
+                    className="group hover:shadow-lg transition-all duration-300"
+                  >
                     <CardContent className="p-4">
                       <div className="text-center mb-4">
                         <div className="text-4xl mb-2">{product.image}</div>
@@ -830,9 +931,11 @@ export default function CategoryProducts() {
                       </div>
 
                       <div className="space-y-2 mb-4">
-                        <h3 className="font-semibold text-gray-900 text-sm">{product.name}</h3>
+                        <h3 className="font-semibold text-gray-900 text-sm">
+                          {product.name}
+                        </h3>
                         <p className="text-xs text-gray-600">{product.brand}</p>
-                        
+
                         <div className="flex items-center gap-1">
                           <div className="flex items-center">
                             {[...Array(5)].map((_, i) => (
@@ -875,15 +978,18 @@ export default function CategoryProducts() {
                       <div className="flex gap-2">
                         <Button
                           onClick={() => {
-                            addToCart({
-                              id: product.id,
-                              name: product.name,
-                              brand: product.brand,
-                              price: product.price,
-                              originalPrice: product.originalPrice,
-                              image: product.image,
-                              category: product.category,
-                            }, 1);
+                            addToCart(
+                              {
+                                id: product.id,
+                                name: product.name,
+                                brand: product.brand,
+                                price: product.price,
+                                originalPrice: product.originalPrice,
+                                image: product.image,
+                                category: product.category,
+                              },
+                              1,
+                            );
                           }}
                           className="flex-1 h-8 text-xs"
                           disabled={!product.inStock}
@@ -894,25 +1000,27 @@ export default function CategoryProducts() {
                         <Button
                           variant="outline"
                           size="sm"
-                          onClick={() => toggleWishlist({
-                            id: product.id,
-                            name: product.name,
-                            brand: product.brand,
-                            price: product.price,
-                            originalPrice: product.originalPrice,
-                            image: product.image,
-                            category: product.category,
-                            rating: product.rating,
-                            reviewCount: product.reviewCount,
-                          })}
+                          onClick={() =>
+                            toggleWishlist({
+                              id: product.id,
+                              name: product.name,
+                              brand: product.brand,
+                              price: product.price,
+                              originalPrice: product.originalPrice,
+                              image: product.image,
+                              category: product.category,
+                              rating: product.rating,
+                              reviewCount: product.reviewCount,
+                            })
+                          }
                           className="h-8 w-8 p-0"
                         >
-                          <Heart 
+                          <Heart
                             className={`w-3 h-3 ${
-                              isInWishlist(product.id) 
-                                ? "text-red-500 fill-current" 
+                              isInWishlist(product.id)
+                                ? "text-red-500 fill-current"
                                 : "text-gray-400"
-                            }`} 
+                            }`}
                           />
                         </Button>
                       </div>
@@ -923,21 +1031,31 @@ export default function CategoryProducts() {
             ) : (
               <div className="space-y-4">
                 {filteredProducts.map((product) => (
-                  <Card key={product.id} className="hover:shadow-lg transition-all duration-300">
+                  <Card
+                    key={product.id}
+                    className="hover:shadow-lg transition-all duration-300"
+                  >
                     <CardContent className="p-4">
                       <div className="flex items-center gap-4">
                         <div className="text-4xl">{product.image}</div>
-                        
+
                         <div className="flex-1">
                           <div className="flex items-start justify-between mb-2">
                             <div>
-                              <h3 className="font-semibold text-gray-900">{product.name}</h3>
-                              <p className="text-sm text-gray-600">{product.brand}</p>
-                              <Badge className={category.color} variant="secondary">
+                              <h3 className="font-semibold text-gray-900">
+                                {product.name}
+                              </h3>
+                              <p className="text-sm text-gray-600">
+                                {product.brand}
+                              </p>
+                              <Badge
+                                className={category.color}
+                                variant="secondary"
+                              >
                                 {product.subcategory}
                               </Badge>
                             </div>
-                            
+
                             <div className="text-right">
                               <div className="flex items-center gap-2">
                                 <span className="text-xl font-bold text-tech-beam-600">
@@ -950,15 +1068,20 @@ export default function CategoryProducts() {
                                 )}
                               </div>
                               {product.discount && (
-                                <Badge variant="destructive" className="text-xs">
+                                <Badge
+                                  variant="destructive"
+                                  className="text-xs"
+                                >
                                   -{product.discount}% off
                                 </Badge>
                               )}
                             </div>
                           </div>
 
-                          <p className="text-sm text-gray-600 mb-2">{product.description}</p>
-                          
+                          <p className="text-sm text-gray-600 mb-2">
+                            {product.description}
+                          </p>
+
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-4">
                               <div className="flex items-center gap-1">
@@ -978,7 +1101,7 @@ export default function CategoryProducts() {
                                   {product.rating} ({product.reviewCount})
                                 </span>
                               </div>
-                              
+
                               <p className="text-sm text-gray-500">
                                 {product.inStock ? "In Stock" : "Out of Stock"}
                               </p>
@@ -987,15 +1110,18 @@ export default function CategoryProducts() {
                             <div className="flex gap-2">
                               <Button
                                 onClick={() => {
-                                  addToCart({
-                                    id: product.id,
-                                    name: product.name,
-                                    brand: product.brand,
-                                    price: product.price,
-                                    originalPrice: product.originalPrice,
-                                    image: product.image,
-                                    category: product.category,
-                                  }, 1);
+                                  addToCart(
+                                    {
+                                      id: product.id,
+                                      name: product.name,
+                                      brand: product.brand,
+                                      price: product.price,
+                                      originalPrice: product.originalPrice,
+                                      image: product.image,
+                                      category: product.category,
+                                    },
+                                    1,
+                                  );
                                 }}
                                 disabled={!product.inStock}
                               >
@@ -1004,24 +1130,26 @@ export default function CategoryProducts() {
                               </Button>
                               <Button
                                 variant="outline"
-                                onClick={() => toggleWishlist({
-                                  id: product.id,
-                                  name: product.name,
-                                  brand: product.brand,
-                                  price: product.price,
-                                  originalPrice: product.originalPrice,
-                                  image: product.image,
-                                  category: product.category,
-                                  rating: product.rating,
-                                  reviewCount: product.reviewCount,
-                                })}
+                                onClick={() =>
+                                  toggleWishlist({
+                                    id: product.id,
+                                    name: product.name,
+                                    brand: product.brand,
+                                    price: product.price,
+                                    originalPrice: product.originalPrice,
+                                    image: product.image,
+                                    category: product.category,
+                                    rating: product.rating,
+                                    reviewCount: product.reviewCount,
+                                  })
+                                }
                               >
-                                <Heart 
+                                <Heart
                                   className={`w-4 h-4 mr-2 ${
-                                    isInWishlist(product.id) 
-                                      ? "text-red-500 fill-current" 
+                                    isInWishlist(product.id)
+                                      ? "text-red-500 fill-current"
                                       : "text-gray-400"
-                                  }`} 
+                                  }`}
                                 />
                                 Wishlist
                               </Button>
@@ -1038,8 +1166,12 @@ export default function CategoryProducts() {
             {filteredProducts.length === 0 && (
               <div className="text-center py-12">
                 <Package className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">No products found</h3>
-                <p className="text-gray-600">Try adjusting your filters or search terms.</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  No products found
+                </h3>
+                <p className="text-gray-600">
+                  Try adjusting your filters or search terms.
+                </p>
               </div>
             )}
           </main>
