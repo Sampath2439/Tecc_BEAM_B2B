@@ -80,12 +80,12 @@ const categoryData = {
     subcategories: ["Detergents", "Cleaners", "Kitchen Items", "Home Decor", "Storage"],
   },
   5: {
-    name: "Office Supplies",
-    slug: "office-supplies",
+    name: "Office & Stationery",
+    slug: "office-stationery",
     description: "Stationery, paper, and office equipment",
     image: "📄",
     color: "bg-orange-100 text-orange-800",
-    subcategories: ["Stationery", "Paper Products", "Office Equipment", "Storage", "Electronics"],
+    subcategories: ["Paper Products", "Writing Instruments", "Filing & Storage", "Printing Supplies", "Desk Accessories"],
   },
   6: {
     name: "Health & Wellness",
@@ -93,7 +93,23 @@ const categoryData = {
     description: "Supplements, first aid, and health products",
     image: "💊",
     color: "bg-red-100 text-red-800",
-    subcategories: ["Supplements", "First Aid", "Fitness", "Baby Care", "Medical Devices"],
+    subcategories: ["Supplements", "First Aid", "Health Devices", "Fitness Equipment", "Medical Supplies"],
+  },
+  7: {
+    name: "Textiles & Apparel",
+    slug: "textiles-apparel",
+    description: "Clothing, fabrics, and textile products",
+    image: "👕",
+    color: "bg-indigo-100 text-indigo-800",
+    subcategories: ["Men's Wear", "Women's Wear", "Kids Wear", "Fabrics", "Accessories"],
+  },
+  8: {
+    name: "Sports & Fitness",
+    slug: "sports-fitness",
+    description: "Sports equipment, fitness gear, and recreational products",
+    image: "⚽",
+    color: "bg-yellow-100 text-yellow-800",
+    subcategories: ["Fitness Equipment", "Sports Gear", "Outdoor Activities", "Nutrition", "Athletic Wear"],
   },
 };
 
