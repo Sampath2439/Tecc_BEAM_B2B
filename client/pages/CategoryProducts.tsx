@@ -442,7 +442,18 @@ const mockProducts: Record<number, Product[]> = {
 
 export default function CategoryProducts() {
   const { id } = useParams<{ id: string }>();
-  const categoryId = parseInt(id || "1");
+
+  // Handle both numeric IDs and slugs
+  let categoryId: number;
+  if (id && isNaN(parseInt(id))) {
+    // It's a slug, find the category ID
+    const foundCategory = Object.entries(categoryData).find(([_, cat]) => cat.slug === id);
+    categoryId = foundCategory ? parseInt(foundCategory[0]) : 1;
+  } else {
+    // It's a numeric ID
+    categoryId = parseInt(id || "1");
+  }
+
   const category = categoryData[categoryId as keyof typeof categoryData];
   const products = mockProducts[categoryId] || [];
 
