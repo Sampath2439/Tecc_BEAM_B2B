@@ -95,7 +95,7 @@ export default function Layout({
                     Tech <span className="text-tech-beam-600">BEAM</span>
                   </h1>
                   <p className="text-xs text-gray-500 -mt-1">
-                    Wholesale Portal
+                    Online Store
                   </p>
                 </div>
               </Link>
@@ -186,7 +186,7 @@ export default function Layout({
                       <p className="text-sm font-medium text-gray-900">
                         {state.user.company}
                       </p>
-                      <p className="text-xs text-gray-500">Business Account</p>
+                      <p className="text-xs text-gray-500">My Account</p>
                     </div>
                   </Button>
                 </DropdownMenuTrigger>
@@ -319,12 +319,12 @@ export default function Layout({
                   </div>
                   <div>
                     <h3 className="text-lg font-bold">Tech BEAM</h3>
-                    <p className="text-sm text-gray-400">Wholesale Portal</p>
+                    <p className="text-sm text-gray-400">Online Store</p>
                   </div>
                 </div>
                 <p className="text-gray-400 text-sm">
-                  Your trusted B2B partner for wholesale procurement and
-                  business management.
+                  Your trusted online shopping destination for quality
+                  products and great deals.
                 </p>
               </div>
 
@@ -364,7 +364,7 @@ export default function Layout({
                   </li>
                   <li>
                     <Link to="/contact" className="hover:text-white">
-                      Contact Sales
+                      Contact Us
                     </Link>
                   </li>
                   <li>
@@ -381,14 +381,14 @@ export default function Layout({
               </div>
 
               <div>
-                <h4 className="font-semibold mb-4">Business Hours</h4>
+                <h4 className="font-semibold mb-4">Store Hours</h4>
                 <div className="text-sm text-gray-400 space-y-1">
                   <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
                   <p>Saturday: 10:00 AM - 4:00 PM</p>
                   <p>Sunday: Closed</p>
                   <p className="pt-2">
                     <span className="text-tech-beam-400">
-                      24/7 Online Ordering
+                      24/7 Online Shopping
                     </span>
                   </p>
                 </div>
@@ -397,8 +397,8 @@ export default function Layout({
 
             <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
               <p>
-                © 2024 Tech BEAM Wholesale Portal. All rights reserved. |
-                Business Solutions
+                © 2024 Tech BEAM Online Store. All rights reserved. |
+                Shopping Made Easy
               </p>
             </div>
           </div>
