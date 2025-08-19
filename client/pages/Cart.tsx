@@ -216,9 +216,6 @@ export default function Cart() {
                                 <Plus className="w-4 h-4" />
                               </Button>
                             </div>
-                            <span className="text-sm text-gray-500">
-                              ({item.minOrder})
-                            </span>
                           </div>
 
                           <div className="flex items-center gap-2">
